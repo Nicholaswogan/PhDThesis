@@ -1,3 +1,0 @@
-# PhDThesis
-
-My PhD thesis.
