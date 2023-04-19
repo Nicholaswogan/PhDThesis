@@ -45,6 +45,9 @@
 \documentclass[11pt, proquest]{uwthesis}[2016/11/22]
 
 \usepackage[hidelinks]{hyperref}
+\usepackage[round]{natbib}
+\usepackage{graphicx}
+\usepackage{notoccite}
 
 %
 % The following line would print the thesis in a postscript font 
@@ -69,7 +72,7 @@
 %
 % ----- copyright and title pages
 %
-\Title{Nick's Thesis}
+\Title{Biosignatures, the Origin of Life, and the Early Earth Atmosphere}
 \Author{Nicholas Wogan}
 \Year{2023}
 \Program{Earth and Space Sciences}
@@ -130,15 +133,18 @@ Acknowledge stuff
 
 % ========== Chapters
 
+% Chapter 2
 \chapter{Introduction} \label{ch:intro}
- 
-Intro goes here.
 
-\part{This is the intro}
- 
-\chapter{The second chapter}
- 
+Intro.
 
+% Part 1
+\part{Atmospheric Biosignatures, and Life's Impact on the Early Earth}
+ 
+% Chapter 2
+\chapter{Atmospheric Chemical Disequilibrium from Dead to Living Worlds}
+\newpage
+\include{tex/2diseq.tex}
 
 \printendnotes
 
@@ -146,7 +152,7 @@ Intro goes here.
 % ==========   Bibliography
 %
 \nocite{*}
-\bibliographystyle{plain}
+\bibliographystyle{plainnat}
 \bibliography{bib}
 %
 % ==========   Appendices
