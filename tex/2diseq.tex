@@ -4,4 +4,285 @@ Chemical disequilibrium in exoplanetary atmospheres (detectable with remote spec
 
 \section{Introduction}
 
-It will soon be possible to look for biosignature gases in exoplanet atmospheres with telescopes. Within several years, the James Webb Space Telescope (JWST) will measure the composition of exoplanet atmospheres with transit spectroscopy \citep{Fischer_2016,Gaudi_2019}. Ground-based telescopes, such as the Extremely Large Telescope, will also play a role in the spectroscopic search for life by the mid 2020s
+It will soon be possible to look for biosignature gases in exoplanet atmospheres with telescopes. Within several years, the James Webb Space Telescope (JWST) will measure the composition of exoplanet atmospheres with transit spectroscopy \citep{Fischer_2016,Gaudi_2019}. Ground-based telescopes, such as the Extremely Large Telescope, will also play a role in the spectroscopic search for life by the mid 2020s \citep{Lopez_2019,Snellen_2013}.
+
+Much biosignature research suggests that telescopes look for O$_2$ produced by oxygenic photosynthesis \citep{Meadows_2017,Meadows_2018,Owen_1980}. Molecular oxygen can be a relatively easy biogenic gas to detect on an exoplanet \citep{Meadows_2017}, and it is generated in large quantities by relatively few abiotic processes \citep{Meadows_2018}.
+
+However, Earth's O$_2$ biosignature has been strongly detectable for only the past $\sim$ 1/8th of Earth's inhabited history. Fossil stromatolites show that the origin of life was before $\sim 3.5$ Ga \citep{Walter_1980}, while geochemical data suggest that oxygenic photosynthesis could have arisen by $\sim 3$ Ga \citep{Planavsky_2014}. Despite the possible early rise of oxygenic photosynthesis, there was negligible atmospheric O$_2$ in the Archean eon (4.0 to 2.5 Ga) \citep{Farquhar_2000}. Earth had O$_2$ in the Proterozoic Eon (2.5 to 0.541 Ga), but some atmospheric proxies \citep{Planavsky_2014b} indicate that O$_2$ may not have been plentiful enough to detect over interstellar distances with upcoming and future space-based telescopes \citep{KrissansenTotton_2018b,Reinhard_2017}. Also, oxygenic photosynthesis is a complex metabolism that only evolved once on Earth \citep{Fischer_2016}, and it is unknown whether its origin on an exoplanet is likely.
+
+An alternative to looking for any single biogenic gas (e.g., O$_2$, CH$_4$, or N$_2$O), is to look for chemical disequilibrium, i.e., the long-term coexistence of two or more chemically incompatible species \citep{Lovelock_1965,Lovelock_1975}. On the modern Earth, different metabolisms produce different waste gases, which have a thermodynamic drive to react over long periods of time. Thus, incompatible waste gases, or disequilibria, are maintained in Earth's environment by biogenic fluxes. The persistence of CH$_4$ and O$_2$ (which react through a series of intermediates) in Earth's modern atmosphere is an example and indicates continuous replenishment of these gases by biology. 
+
+\citet{Lovelock_1965} first proposed searching for life on other planets by looking for disequilibrium gases in planetary atmospheres, and subsequently \citet{Lovelock_1975} attempted to quantify the disequilibrium of Solar System planets. Unfortunately, knowledge of atmospheric composition of the Solar System planets, and computational methods for thermodynamic calculations were insufficient at the time for accurate calculations.
+
+Using modern computational techniques and thermodynamics, \citet{KrissansenTotton_2016} calculated the atmosphere or atmosphere-ocean disequilibrium of several Solar System planets, Titan, and Earth. They found that Earth's atmosphere-ocean system has more than an order of magnitude disequilibrium (in joules per mole of atmosphere) than any other planet due to biogenic fluxes. They propose high atmosphere-ocean chemical disequilibrium as a biosignature for exoplanets similar to the modern Earth, with photosynthetic biospheres. Subsequently, \citet{KrissansenTotton_2018c} used atmospheric proxy and model-based estimates of Earth's Archean and Proterozoic atmosphere and ocean to calculate chemical disequilibrium over Earth history. They showed that disequilibrium rose to its present value because of atmospheric oxygen released from oxygenic photosynthesis, and N$_2$ put into the atmosphere from bacterial denitrification (conversion of NO$_x$ to N$_2$) which uses organic carbon from photosynthesis (for further explanation see Section 4.1 in \citet{KrissansenTotton_2016}).
+
+Despite this prior work, interpretation of disequilibrium as a sign of life is unclear. A planet without life might have a large disequilibrium of untapped free energy because life is not consuming it, so disequilibrium in that case is the very opposite of a sign of life: an anti-biosignature. If chemotrophic life evolves, its metabolism uses environmental free energy and tends to push environments toward thermodynamic equilibrium. Thus, we expect no big disequilibrium on a purely chemotrophic world. Finally, the modern state of high disequilibrium is a biosignature, but depends on the presence of a large, oxygenic photosynthetic biosphere.
+
+To elucidate these subtleties quantitatively, we use a photochemical model to calculate the plausible atmosphere-ocean disequilibrium of the prebiotic Earth and then couple the model to a simple microbial biosphere to investigate the Earth immediately after the origin of life. We demonstrate that atmosphere-ocean disequilibrium drops when chemotrophic life appears because such life destroys volcanically generated atmospheric free energy and can easily catalyze the reactions. However, the mixture of gases from phototrophs is not all consumed by chemotrophs because of insurmountable activation energy barriers, so this disequilibrium persists. Our results build upon previous studies \citep{KrissansenTotton_2016,KrissansenTotton_2018c} to provide conservative estimates of chemical disequilibrium through Earth history by including the Hadean Earth. With our results, we distinguish the general cases when disequilibrium indicates life versus when disequilibrium is an anti-biosignature. 
+
+\section{Methods}
+
+We model the change in atmosphere-ocean chemical disequilibrium between the prebiotic Earth, and Earth influenced by a chemotrophic ecosystem in two steps. First, we simulate atmospheric composition using a photochemical model coupled to a microbial biosphere (in the biotic case), and second, we calculate the atmosphere-ocean disequilibrium of this simulated atmosphere with multiphase Gibbs energy minimization. The following sections briefly describe both of these steps, and the Appendices 
+\ref{} % A
+and \ref{} % B
+contain more detailed methods. The Python, Fortran and MATLAB source code is available on Github at \url{https://github.com/Nicholaswogan/Wogan_and_Catling_2020}.
+
+\subsection{Modeling the Hadean Atmosphere}
+
+For both the prebiotic and biotic atmospheric compositions, we use the 1-D photochemical-climate code contained within the open source software package \textit{Atmos}. \textit{Atmos} is derived from a model originally developed by the Kasting group \citep{Pavlov_2001}, and versions of this code have been used to simulate the Archean and Proterozoic Earth atmosphere \citep{Zahnle_2006}, Mars \citep{Sholes_2019,Smith_2014,Zahnle_2008}, and exoplanet atmospheres \citep{Arney_2016,Schwieterman_2019}. We use \textit{Atmos} to model the prebiotic atmosphere and the atmosphere influenced by a chemotrophic ecosystem by setting lower boundary conditions appropriate to each scenario. Every model run achieves redox balance (i.e., conservation of chemical oxidants and reductants in the atmosphere) to better than approximately 0.01\% (for an explanation of redox balance see Chapter 8 in \citet{Catling_2017}).
+
+\subsubsection{Hadean Volcanic Outgassing}
+
+Modeling the atmosphere requires estimates of volcanic outgassing fluxes on the Hadean Earth. These fluxes depend on the redox state of the mantle, which is quantified by the mantle's oxygen fugacity ($f_\mathrm{O_2}$). A more reduced mantle (lower O$_2$ fugacity) expels more reduced gases (e.g., H$_2$) relative to oxidized gases (e.g., H$_2$O). Recent oxygen fugacity proxies indicate that Earth's mantle was more reduced several billion years ago and slowly oxidized \citep{Aulbach_2016,Nicklas_2019}. We linearly extrapolate O$_2$ fugacity data obtained by \citet{Aulbach_2016} backward in time to estimate an O$_2$ fugacity of $\log_{10}\left(f_\mathrm{O_2}\right) = \mathrm{FMQ} - 1.48$ at $\sim 4$ Ga 
+(Appendix \ref{}) % A
+to represent mantle redox state around the time of the origin of life. Here, FMQ is the fayalite-magnetite-quartz buffer which is a synthetic reference $f_\mathrm{O_2}$ value at fixed temperature-pressure conditions. Sensitivity of calculated disequilibrium to $f_\mathrm{O_2}$ is relatively small. Changing the oxygen fugacity by 1 log unit changes the calculated atmosphere-ocean chemical disequilibrium by a factor of $\sim 2$ 
+(Appendix \ref{}), % B.3
+which is small compared to other uncertainties in chemical disequilibrium for an assumed prebiotic Earth at 4 Ga.
+
+Volcanic outgassing in prebiotic times also depends on the total flux of all volcanic gases. This total depends on the tectonic regime of the ancient Earth, which is debated \citep{Rosas_2018}. If Earth lacked plate tectonics and was in a ``stagnant lid'' regime, then the average heat flux could have been comparable to the modern flux despite a much warmer interior \citep{Korenaga_2009}. On the other hand, if plate tectonics was active in the Hadean, the heat flux on the 4 Ga Earth could have been 5 times higher than today \citep{Sleep_2001}.
+
+Volcanic outgassing is proportional to the heat flux to a power between 1 and 2. To be conservative, we take volcanic outgassing proportional to the square of heat flux \citep{Sleep_2001}, so lower and upper bounds on heat flux suggest volcanic outgassing rates between 1 and 25 times the modern outgassing rate. We adopt this range here to estimate total volcanic outgassing fluxes ($F_x$) of hydrogen, carbon and sulfur at $\sim 4$ Ga with the formulas
+
+\begin{equation}
+  \label{eq:h_volc_flux}
+  F_\mathrm{hydrogen} = C F_\mathrm{hydrogen}^\mathrm{mod}
+\end{equation}
+\begin{equation}
+  \label{eq:c_volc_flux}
+  F_\mathrm{carbon} = C F_\mathrm{carbon}^\mathrm{mod}
+\end{equation}
+\begin{equation}
+  \label{eq:s_volc_flux}
+  F_\mathrm{sulfur} = C F_\mathrm{suflur}^\mathrm{mod}
+\end{equation}
+Here, $F_x^\mathrm{mod}$ is the modern outgassing flux of species $x$, and $C$ is an outgassing multiplier that we vary between 1 and 25. Fluxes are calculated in units of molecules cm$^{-2}$ s$^{-1}$.
+
+With estimates of O$_2$ fugacity and total outgassing fluxes, we use equilibrium chemistry of the mantle to calculate plausible outgassing fluxes of individual gases, H$_2$, H$_2$O, CH$_4$, CO$_2$, CO, H$_2$S, and SO$_2$ for $C$ between 1 and 25. Details of these calculations are in 
+Appendix \ref{}. % A
+
+\subsubsection{Modeling a Prebiotic Atmosphere}
+
+We model the Earth's prebiotic atmosphere for each volcanic outgassing scenario between 1 and 25 times modern outgassing. We use calculated outgassing fluxes of H$_2$, CO, SO$_2$, and H$_2$S as lower boundary conditions to the \textit{Atmos} photochemical model. Additionally, we set a CO deposition velocity to $10^{-8}$ cm s$^{-1}$ to reflect the abiotic uptake of CO by the ocean \citep{Kharecha_2005}. We assume that the abiotic surface flux of CH$_4$ is negligible. This assumption is supported by a recent work on the abiotic formation CH$_4$ on the modern Earth \citep{Fiebig_2019} but is disputed by other studies \citep{Etiope_2013}. All other boundary conditions are specified in 
+Appendix \ref{}. % B.1
+Given volcanic outgassing fluxes and other boundary conditions, \textit{Atmos} calculates the mixing ratios of all species when the atmosphere is at photochemical equilibrium.
+
+\subsubsection{Modeling an Atmosphere Influenced by a Chemotrophic Ecosystem}
+
+For each volcanic outgassing scenario, we also model atmospheric composition influenced by a marine ecosystem of chemotrophic microbes. Our oceanic ecosystem is composed of four chemotrophic microorganisms with the following metabolisms:
+
+\begin{equation}
+  \label{eq:methanogens}
+  \mathrm{CO_2} + 4 \mathrm{H_2} \rightarrow \mathrm{CH_4} + 2 \mathrm{H_2O}
+\end{equation}
+\begin{equation}
+  \label{eq:acetogenic_bac}
+  2 \mathrm{CH_2O} \rightarrow \mathrm{CH_3COOH}
+\end{equation}
+\begin{equation}
+  \label{eq:acetotrophic_meth}
+  \mathrm{CH_3COOH} \rightarrow \mathrm{CH_4} + \mathrm{CO_2}
+\end{equation}
+\begin{equation}
+  \label{eq:acetogenic_co}
+  4 \mathrm{CO} + 2 \mathrm{H_2O} \rightarrow 2 \mathrm{CO_2} + \mathrm{CH_3COOH}
+\end{equation}
+These equations represent the metabolisms of chemosynthetic methanogens (Equation \eqref{eq:methanogens}), acetogenic bacteria (Equation \eqref{eq:acetogenic_bac}), acetotrophic methanogens (Equation \eqref{eq:acetotrophic_meth}), and CO-consuming acetogens (Equation \eqref{eq:acetogenic_co}). We have chosen this ecosystem to represent Earth's biosphere after the origin of life and before the origin of photosynthesis. The actual make-up Earth's biosphere at this time is unknown, but all organisms in our chosen ecosystem are phylogenetically ancient and should have preceded photosynthesis \citep{Adam_2018,Schonheit_2016,Wolfe_2018}, so they are a reasonable representation. 
+
+We model the impact of these various organism on atmospheric composition by setting lower boundary conditions in the photochemical model that reflect their metabolisms. This technique was used by \citet{Kharecha_2005}, and our ecosystem model is nearly identical to their ``case 2'' atmosphere-ecosystem model. The only difference is that the \textit{Atmos} photochemical code is an updated version of the one used by \citet{Kharecha_2005}. Below, we briefly describe how the model works, although a more in-depth account can be found in \citet{Kharecha_2005} p. 58-61. 
+Appendix \ref{} % B.1 
+contains all the boundary conditions that are not listed in the main text.
+
+Ground-level H$_2$ was likely much more plentiful than CH$_4$ on the prebiotic Earth because H$_2$ was produced by mantle-sourced volcanoes, and CH$_4$ was not because it is not thermodynamically favored compared to CO$_2$. When chemotrophic methanogens originated, they would have converted some of the prebiotic H$_2$ to CH$_4$ through their metabolism, although the total amount of hydrogen stored in these molecules would not have changed significantly. In other words, the weighted sum of the ground-level H$_2$ and CH$_4$ mixing ratios on the prebiotic Earth (denoted $n_\mathrm{H_2}^\mathrm{pre}$ and $n_\mathrm{CH_4}^\mathrm{pre}$, respectively) would have been approximately equal to the weighted sum of the ground-level H$_2$ and CH$_4$ mixing ratios on the Earth influenced by methanogens (denoted $n_\mathrm{H_2}^\mathrm{eco}$ and $n_\mathrm{CH_4}^\mathrm{eco}$, respectively):
+
+\begin{equation}
+  \label{eq:h_balance}
+  n_\mathrm{H_2}^\mathrm{eco} + 2 n_\mathrm{CH_4}^\mathrm{eco} \approx n_\mathrm{H_2}^\mathrm{pre} + 2 n_\mathrm{CH_4}^\mathrm{pre}
+\end{equation}
+
+Equation \eqref{eq:h_balance} is only approximately valid because burial of organic carbon, which contains hydrogen, would cause $n_\mathrm{H_2}^\mathrm{eco} + 2 n_\mathrm{CH_4}^\mathrm{eco}$ to be less than $n_\mathrm{H_2}^\mathrm{pre} + 2 n_\mathrm{CH_4}^\mathrm{pre}$ by no more than $\sim 1\%$. The precise difference depends on how efficiently organic carbon was buried in the past. Since this difference is small, we ignore organic carbon is burial, and assume that acetogenic bacteria and acetotrophic methanogens living in the ocean convert all organic carbon to methane and carbon dioxide. Our assumptions implicitly include heterotrophs in the model.
+
+How much of the prebiotic atmospheric H$_2$ was converted to CH$_4$ by methanogens? Methanogens lived in the ocean, so their consumption or generation of atmospheric H$_2$ and CH$_4$ was modulated by gas transfer across the atmosphere-ocean interface. We model gas exchange using a stagnant boundary layer model \citep{Kharecha_2005,Liss_1974}. Within the ocean, life was probably energy limited, and not nutrient limited (i.e., life was not limited by phosphorus or biologically available nitrogen) on Earth before the advent of oxygenic photosynthesis \citep{Canfield_2006,Kharecha_2005,Ward_2019}. Therefore, we assume that methanogens consumed H$_2$ and expelled CH$_4$ in the ocean until they obtain 30 kJ mol$^{-1}$ from Equation \eqref{eq:methanogens}, which is the approximate Gibbs energy required to create 1 mol of ATP.
+
+In practice, we simulate methanogens for each outgassing rate with the following steps. First, we arbitrarily set the ground-level H$_2$ and CH$_4$ mixing ratios in the photochemical model such that they satisfy Equation \eqref{eq:h_balance}. Second, we run the photochemical model to retrieve the surface flux of H$_2$ and CH$_4$. Third, we check whether the calculated H$_2$ and CH$_4$ fluxes reflect energy-limited methanogens in an ocean which exchanges gases with the atmosphere via a stagnant boundary layer. Fourth, if the fluxes do not satisfy this requirement, then we select new H$_2$ and CH$_4$ mixing ratios which are closer to satisfying step 3 (which still satisfy Equation \eqref{eq:h_balance}). We iterate steps 2 through 4 until step 3 is satisfied. 
+
+To simulate CO-consuming acetogens, we set the CO deposition velocity to its maximum value of $1.2 \times 10^{-4}$ cm s$^{-1}$. This maximum deposition velocity assumes that acetogens consume CO as soon as it enters the ocean. This assumption is reasonable because an energy limited chemotrophic biosphere which contains CO consumers should draw CO concentrations to negligible amounts in the ocean \citep{Kharecha_2005,Schwieterman_2019}. The photochemical code calculates the mixing ratio of CO corresponding to the maximum deposition velocity.
+
+\subsection{Quantification of Chemical Disequilibrium}
+
+For each prebiotic and biotic atmosphere, we calculate the atmosphere-ocean chemical disequilibrium with Gibbs energy minimization, using code described previously \citep{KrissansenTotton_2018c}. Given the chemical composition of an atmosphere-ocean system, the code reacts all molecules and atoms to thermodynamic equilibrium. The chemical disequilibrium is then defined by the Gibbs free energy difference between the initial and equilibrium state:
+
+\begin{equation}
+  \Phi = G_{(T,P)} \left( \textbf{n}_\mathrm{initial} \right) - G_{(T,P)} \left( \textbf{n}_\mathrm{final} \right)
+\end{equation}
+Here, $\Phi$ is the available Gibbs energy (J/mol atmosphere). The vector containing the abundance of all atmospheric and ocean species is $\textbf{n}_\mathrm{initial}$, while $\textbf{n}_\mathrm{final}$ contains abundances of the final equilibrium state. The quantification of chemical disequilibrium, $\Phi$, is the maximum chemical energy that can be extracted from the atmosphere-ocean system that can be used to do work.
+
+We determined the initial state of the atmosphere using the surface mixing ratios from the photochemical model (as described in the previous two sections), while the assumed initial state of the ocean is given in Table \ref{tab:assumed_comp}. Unless stated otherwise in Table \ref{tab:assumed_comp}, dissolved gas abundances were determined with Henry's law constants derived from NASA's thermodynamic database \citep{Burcat_2005} and SUPCRT database \citep{Johnson_1992}. Additionally, we assumed atmospheric temperature and pressure to be 25$^\circ$C and 1 bar respectively. Chemical disequilibrium is fairly insensitive to ocean composition, atmospheric pressure and temperature \citep{KrissansenTotton_2018c}; consequently, order of magnitude errors in these assumptions will result in a fairly small error (well within a factor of $\sim 2$) in the available Gibbs energy.
+
+\begin{table}
+  \caption{Assumed initial atmosphere-ocean composition for the prebiotic and biotic early Earth.}
+  \label{tab:assumed_comp}
+  \begin{center}
+  \begin{tabularx}{0.95\linewidth}{p{0.2\linewidth} p{0.25\linewidth} p{0.45\linewidth}}
+    \hline \hline
+    Ocean Species & Molality (mol/kg) & Reference/explanation \\
+    \hline
+    Na$^{+}$ & 0.586 & Charge balance 
+    \\
+    Cl$^{-}$ & 0.545 & Modern value
+    \\
+    SO$_4^{2-}$ & 0 & \citep{Crowe_2014}
+    \\
+    NH$_3$ & $6.40 \times 10^{-9}$ & Henry's law from atmospheric NH$_3$
+    \\
+    NH$_4^{+}$ & $2.9 \times 10^{-6}$ & Equilibrium with NH$_3$ and pH
+    \\
+    H$_2$S & 0 & \citep{KrissansenTotton_2018c}
+    \\
+    pH & 6.6 (dimensionless) & \citep{KrissansenTotton_2018}
+    \\
+    HCO$_3^{-}$ & 0.02674 & Equilibrium with CO$_2$ and pH
+    \\
+    CO$_3^{2-}$ & $8.03 \times 10^{-5}$ & Equilibrium with HCO$_3^{-}$ and pH 
+    \\
+    \hline \hline
+    Atmospheric Species & Mixing Ratio & Reference/explanation \\
+    \hline
+    NH$_3$ & $10^{-10}$ & \citet{Wolf_2010}. Negligible, so not in photochemical model
+    \\
+    H$_2$O & 0.025 & Global average value 
+    \\
+    CO$_2$ & 0.2 & Nominal value \citep{Kadoya_2020,KrissansenTotton_2018}
+  \end{tabularx}
+  \end{center}
+\end{table}
+
+\section{Results}
+
+\subsection{Chemical disequilibrium on the prebiotic and chemotrophic Earth}
+
+The modeled mixing ratios of H$_2$, CH$_4$ and CO for both prebiotic and chemotrophic simulations are shown in Figure \ref{fig:diseq_figure1} as a function of the volcanic outgassing multiplier (from Equations \eqref{eq:h_volc_flux} - \eqref{eq:s_volc_flux}). All mixing ratios increase with increased volcanic outgassing, and CO in the prebiotic atmosphere increases rapidly. This behavior has been observed in other photochemical modeling studies and has been termed ``CO runaway'' \citep{Kasting_1983,Zahnle_1986}. The CO consumers in the chemotrophic model prevent ``CO runaway''. Additionally, $> 95\%$ of the H$_2$ present in the prebiotic model is converted to CH$_4$ by methanogens once we implement the chemotrophic model. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\textwidth]{tex/2diseq/Figure1.pdf}
+  \caption{The mixing ratio of H$_2$, CH$_4$ and CO in the modeled prebiotic and chemotrophic early Earth atmospheres as a function of volcanic outgassing, relative to modern. Black lines represent mixing ratios for the prebiotic case. Red lines represent mixing ratios for the chemotrophic case where we have assumed an energy-limited ocean ecosystem. For both simulations, we also assume the mixing ratios of N$_2$ and CO$_2$ are 0.75 and 0.2 respectively. The presence of a chemotrophic biosphere drastically lowers H$_2$ abundances and increases CH$_4$ abundances due to methanogenesis, and lowers CO abundances because of acetogenesis.}
+  \label{fig:diseq_figure1}
+\end{figure}
+
+Figure \ref{fig:diseq_figure2} shows the modeled atmosphere-ocean thermodynamic disequilibrium for the prebiotic and chemotrophic atmosphere as a function of the volcanic outgassing multiplier. For all outgassing scenarios, the chemotrophic atmosphere-ocean disequilibrium is lower than the prebiotic atmosphere-ocean disequilibrium because the biosphere exploits free energy for metabolism. Additionally, the atmosphere-only disequilibrium is always lower in the chemotrophic ecosystem than in the prebiotic ecosystem for the same reason.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\textwidth]{tex/2diseq/Figure2.pdf}
+  \caption{Chemical disequilibrium, as measured by available Gibbs energy, of the prebiotic (black lines) and chemotrophic (red lines) Earth as a function of a volcanic outgassing multiplier, relative to modern. The dotted lines are atmosphere-only Gibbs energy calculations, and the solid lines are atmosphere-ocean calculations. The presence of a chemotrophic ecosystem lowers both the atmosphere-ocean and atmosphere-only chemical disequilibrium by using the free energy for metabolism.}
+  \label{fig:diseq_figure2}
+\end{figure}
+
+The following sections explain which species contribute most to the available Gibbs energy in both the prebiotic and chemotrophic model.
+
+\subsection{The prebiotic disequilibrium and the species that contribute to it}
+
+The available Gibbs energy of the prebiotic atmosphere-ocean system for modern volcanic outgassing rates ($C = 1$) is 62 J/mol of atmosphere (compared to 2326 J/mol for the modern biotic Earth \citep{KrissansenTotton_2016}). The largest source of disequilibrium is due to the coexistence of CO$_2$ and H$_2$ which accounts for $\sim 40$ J/mol (65\%) of this total available Gibbs energy. These molecules should react and form CH$_4$ and water vapor in equilibrium:
+
+\begin{equation}
+  4 \mathrm{H_2} + \mathrm{CO_2} \leftrightarrow \mathrm{CH_4} + 2 \mathrm{H_2O}
+\end{equation}
+
+The coexistence of CO and water vapor contributes $\sim 10$ J/mol (16\%), which is the second most important contributor to this available Gibbs energy. At equilibrium, H$_2$ and CO$_2$ will be replaced by CH$_4$ and CO$_2$ from the reaction
+
+\begin{equation}
+  4 \mathrm{CO} + 2 \mathrm{H_2O} \leftrightarrow 3 \mathrm{CO_2} + \mathrm{CH_4}
+\end{equation}
+
+Both the H$_2$-CO$_2$ and CO-H$_2$O disequilibrium ultimately come from volcanic outgassing. Gases were once in equilibrium with magma but have been emitted into a colder environment of the atmosphere where they are in disequilibrium. For higher outgassing scenarios, the H$_2$-CO$_2$ and CO-H$_2$O reactions remain the most import contributors to the available Gibbs energy. Since these reactions are in the gas phase, the atmosphere-only disequilibrium is nearly as large ($\sim 80\%$) as the atmosphere-ocean disequilibrium for all outgassing rates. For a possible Hadean outgassing rate of $C = 9$, $\Phi$ is 1555 J/mol.
+
+\subsection{The chemotrophic disequilibrium and species that contribute to it}
+
+The atmosphere-ocean available Gibbs energy of the chemotrophic Earth for modern volcanic outgassing rates ($C = 1$) is 30 J/mol. The coexistence of CO$_2$, CH$_4$, N$_2$, and liquid water contribute $\sim 24$ J/mol (80\%) to this available Gibbs energy. These four species should react and deplete 99.9\% of atmospheric methane in equilibrium
+
+\begin{equation}
+  \label{eq:chemo_diseq}
+  5 \mathrm{CO_2} + 4 \mathrm{N_2} + 3 \mathrm{CH_4} + 14 \mathrm{H_2O} \leftrightarrow 8 \mathrm{NH_4^{+}} + 8 \mathrm{HCO_3^{-}}
+\end{equation}
+For volcanic outgassing 25 times modern fluxes ($C = 25$), this reaction accounts for $\sim 273$ J/mol (94\%) of the available Gibbs energy (290 J/mol), which shows that these species are the most important for all modeled chemotrophic systems. The atmosphere-only disequilibrium is always much smaller than the atmosphere-ocean disequilibrium because Equation \eqref{eq:chemo_diseq} involves disequilibrium with the liquid water ocean.
+
+The H$_2$-CO$_2$ and CO-H$_2$O disequilibria, which dominate the prebiotic available Gibbs energy, contribute only $\sim 0.8$ J/mol and $\sim 2.4$ J/mol, respectively, for modern volcanic outgassing ($C = 1$). The minor contribution of these disequilibria persists for all volcanic outgassing scenarios.
+
+\subsection{Disequilibrium though Earth history}
+
+Figure \ref{fig:diseq_figure3} shows our estimates of the evolution of Earth's atmosphere-ocean and atmosphere-only disequilibrium through its history. The prebiotic and chemotrophic disequilibrium ranges are from this study (i.e., Figure \ref{fig:diseq_figure2}), and the estimates from the late Archean to the present are from \citet{KrissansenTotton_2018c}. Figure \ref{fig:diseq_figure3} has a broken axis between the chemotrophic ecosystem and the Archean because the advent of anoxygenic photosynthesis would have likely influenced how disequilibrium changed between these two eras. Our modeling does not capture this transition for reasons discussed below.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\textwidth]{tex/2diseq/Figure3.pdf}
+  \caption{The chemical disequilibrium of Earth's atmosphere-ocean system through time. The shading indicates plausible ranges of atmosphere-ocean disequilibrium during intervals of Earth's history based on modeling (this study), and atmospheric proxies and models \citep{KrissansenTotton_2018c}. The plot is broken between the ``chemotrophic ecosystem'' and ``Archean'' because the advent of anoxygenic photosynthesis would have likely influenced how disequilibrium changed between these two eras which is uncertain. The dotted line is the maximum atmosphere-only disequilibrium. Above the plot are the disequilibria (e.g., H$_2$-CO$_2$) that contribute most to the atmosphere-ocean available Gibbs energy. Throughout Earth's history, disequilibrium fell with the rise of chemotrophic life, and rose after of the oxygenation of Earth's atmosphere from oxygenic photosynthesis.}
+  \label{fig:diseq_figure3}
+\end{figure}
+
+Like the chemotrophic Earth, the Archean disequilibrium was dominated by the coexistence of CO$_2$, CH$_4$, N$_2$, and liquid water \citep{KrissansenTotton_2018c}. After the Great Oxidation Event, the magnitude of the available Gibbs energy rose, and was instead dominated by the coexistence O$_2$, N$_2$ and liquid water, which should react to form nitric acid at equilibrium:
+
+\begin{equation}
+  \label{eq:o2n2h2o_diseq_react}
+  5 \mathrm{O_2} + 2 \mathrm{N_2} + 2 \mathrm{H_2O} \leftrightarrow 4 \mathrm{H^{+}} + 4 \mathrm{NO_3^{-}}
+\end{equation}
+The magnitude of the O$_2$-N$_2$-H$_2$O disequilibrium increased with the rise of O$_2$ until the present available Gibbs energy of 2326 J/mol \citep{KrissansenTotton_2016}. 
+
+\section{Discussion}
+
+\subsection{Life's impact on disequilibria through Earth's history}
+
+Our results show that life has both generated and destroyed chemical disequilibrium in Earth's atmosphere-ocean system (Figure \ref{fig:diseq_figure3}). Pioneering work by \citet{Lovelock_1975}, which proposed using disequilibrium as a sign of life, argued that abiotic worlds would be close to thermodynamic equilibrium. However, this thinking ignored volcanically active planets. We showed that disequilibrium was likely high ($10^2$ to $10^3$ J/mol) in prebiotic times due to the volcanically produced H$_2$-CO$_2$ and CO-H$_2$O disequilibria.
+
+Subsequently, if the first life was chemotrophic and metabolized H$_2$, CO$_2$, and CO, then the atmosphere-ocean disequilibrium would have dropped to $\sim 10^2$ J/mol with the rise of microbial life. This is an example of chemotrophic life destroying the disequilibrium of its environment and promoting chemical equilibrium on a global scale.
+
+The invention of anoxygenic photosynthesis, which we did not consider, may have added to the Atmosphere-ocean disequilibrium in the late Archean. Iron oxidizing photosynthesis is an example: 
+
+\begin{equation}
+  4 \mathrm{Fe^{2+}} + \mathrm{CO_2} + 11 \mathrm{H_2O} + h\nu \rightarrow 4 \mathrm{Fe(OH)_3} + \mathrm{CH_2O} + 8 \mathrm{H^{+}}
+\end{equation}
+
+The CH$_2$O produced could have been processed by heterotrophs and methanogens yielding CH$_4$, which would have added to the Archean CO$_2$-N$_2$-CH$_4$-H$_2$O disequilibrium without the need for additional volcanic outgassing \citep{KrissansenTotton_2018c}. Additionally, the CH$_2$O would also degrade into CO in the ocean, which would have added a small amount to the CO-H$_2$O disequilibrium \citep{Schwieterman_2019}. Figure \ref{fig:diseq_figure3} does not explicitly capture these effects because the evolutionary history of anoxygenic photosynthesis is uncertain, but Archean disequilibrium estimates allow for such photosynthesis \citep{KrissansenTotton_2018c}.
+
+Even though the rise of anoxygenic photosynthesis would have added to the late Archean disequilibrium, overall disequilibrium may have dropped because a lower flux of reductants would have been available to the biosphere. Before the rise of oxygenic photosynthesis, which uses ubiquitous water and sunlight, the biosphere is hypothesized to have been probably limited by the available reductants such as H$_2$, Fe$^{2+}$, and CO \citep{Canfield_2006}. For example, H$_2$-using anoxygenic phototrophs ($\mathrm{CO_2} + 2 \mathrm{H_2} + h\nu \rightarrow \mathrm{CH_2O} + \mathrm{H_2O}$) were likely limited by volcanically outgassed H$_2$. Volcanic outgassing of reductants probably declined from the Hadean to the late Archean as the Earth's interior cooled. Fewer available reductants would have lowered biological CH$_4$ production, resulting in smaller disequilibrium in the late Archean.
+
+The increase of the available Gibbs energy and the rise of the O$_2$-N$_2$-H$_2$O disequilibrium after the Great Oxidation Event was primarily caused by oxygenic photosynthesis. Atmospheric O$_2$ comes directly from oxygenic photosynthesis, and N$_2$ is generated, in part, from denitrifying bacteria that are ultimately powered by organic material from photosynthesis. Disequilibrium increased again to near modern levels with a rise of O$_2$ to near modern levels through the Neoproterozoic and Paleozoic \citep{Krause_2018}.
+
+\subsection{Why disequilibrium persists in Earth's atmosphere-ocean system despite the presence of biology}
+
+Chemotrophs consumed a large fraction of Earth's prebiotic disequilibrium (Figure \ref{fig:diseq_figure2}), but microbes left the CO$_2$-N$_2$-CH$_4$-H$_2$O and O$_2$-N$_2$-H$_2$O disequilibrium uneaten in the Archean and Proterozoic eons and in modern times. Thus, a pertinent question is: Why didn't microbes evolve metabolisms to consume the ``free lunch'' that has persisted in Earth's atmosphere?
+
+We propose that this lack of consumption is due to the kinetic barriers of the CO$_2$-N$_2$-CH$_4$-H$_2$O and O$_2$-N$_2$-H$_2$O reactions, which we hypothesize are insurmountable by enzymes. To illustrate this idea, consider the disequilibrium of O$_2$-N$_2$-H$_2$O. These species would react slowly in the atmosphere in the absence of life via a number of steps:
+
+\begin{equation}
+\begin{aligned}
+  \mathrm{N_2} + 2 \mathrm{O} &\rightarrow 2 \mathrm{NO} + 2 \mathrm{N} \\
+  2 \mathrm{N} + 2 \mathrm{O_2} &\rightarrow 2 \mathrm{NO} + 2 \mathrm{O} \\
+  4 \mathrm{NO} + 2 \mathrm{O_2} &\rightarrow 4 \mathrm{NO_2} \\
+  4 \mathrm{NO_2} + \mathrm{O_2} + 2 \mathrm{H_2O} &\rightarrow 4 \mathrm{HNO_3} \\
+  4 \mathrm{HNO_3} &\rightarrow 4 \mathrm{H^{+}} + 4 \mathrm{NO_3^{-}}
+\end{aligned}
+\end{equation}
+
+The first two reactions, which make NO, are Zeldovich's reactions \citep{Dixon_1984} and require lightning to heat the air to $\sim 20,000$ K \citep{Chameides_1977}. The third reaction occurs very quickly after the NO is generated \citep{Murray_2016}. The final two reactions are ultimately (partially) responsible for acid rain \citep{Platt_1986}. The rate limiting step to the net reaction is the first one, which has an activation energy of 316 kJ/mol \citep{Dixon_1984}. We take this to be a lower bound on the uncatalyzed activation energy of reacting O$_2$, N$_2$ and H$_2$O. This must be a lower bound because the rate limiting step requires the presence of atomic oxygen, which could only have come from splitting O$_2$ with additional energy.
+
+Life harnesses the free energy of disequilibria by lowering activation energy barriers with enzymes. Figure \ref{fig:diseq_figure4}a is a classic textbook graph of free energy during an exothermic chemical reaction. Uncatalyzed reactions can only occur if a relatively large activation energy barrier is overcome. Therefore, many uncatalyzed reactions (between disequilibria) occur extremely slowly because ambient thermal energy is insufficient. Microbes tap into the free energy stored in disequilibria by using enzymes to lower activation energy barriers to levels where thermal energy allows reactions to proceed at appreciable rates. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\textwidth]{tex/2diseq/Figure4.pdf}
+  \caption{(a) Schematic of free energy during a chemical reaction. (b) The activation energy of several uncatalyzed reactions (blue), and reactions catalyzed by enzymes (orange). The lower bound for the uncatalyzed activation energy of O$_2$-N$_2$-H$_2$O (a reaction that life doesn't perform) is from \citet{Dixon_1984}, and the activation energy of nitrogen fixation is from a number of references \citep{Andersen_1977,Hageman_1980} (see 
+  Appendix \ref{} % C
+  for a summary of our literature search of nitrogen fixation kinetics). The rest of the activation energies are from 
+  Table \ref{} % 4 
+  in \citet{Wolfenden_2006}. The uncatalyzed activation energy of O$_2$-N$_2$-H$_2$O is notably larger than the uncatalyzed activation energy of reactions that life manages to perform, which we hypothesize explains why no life has evolved that can exploit the O$_2$-N$_2$-H$_2$O disequilibrium.}
+  \label{fig:diseq_figure4}
+\end{figure}
+
+Figure \ref{fig:diseq_figure4}b compares the uncatalyzed activation energy of O$_2$-N$_2$-H$_2$O to the uncatalyzed activation energy (blue bars) of reactions that enzymes lower to $\sim 30$ to 60 kJ/mol, which allow reactions to proceed at normal temperatures. The reaction between O$_2$, N$_2$, and H$_2$O, which is not performed by life, has an activation energy that is higher than all other uncatalyzed reactions. This suggests that Reaction \eqref{eq:o2n2h2o_diseq_react} is not amenable to biological catalysis. The activation energy of O$_2$-N$_2$-H$_2$O is probably high because it involves breaking the triple bond in $\mathrm{N \equiv N}$ by oxidation. The reaction between CO$_2$, N$_2$, CH$_4$, and H$_2$O (Equation \eqref{eq:chemo_diseq}) also involves breaking an N$_2$ bond, so it potentially has an activation energy comparable to Reaction \eqref{eq:o2n2h2o_diseq_react} ($> 300$ kJ/mol).
+
+Nitrogen fixing bacteria are the only organisms that break $\mathrm{N \equiv N}$ bonds by chemical reduction with the aid of the nitrogenase enzyme. The literature suggests that the uncatalyzed activation energy of nitrogen fixation by reduction is $\sim 200$ kJ/mol \citep{Hageman_1980}, which is $< 63\%$ of the uncatalyzed activation energy of Reaction \eqref{eq:o2n2h2o_diseq_react}. These differing energy barriers might explain why biology has managed to catalyze nitrogen fixation by reduction of N$_2$ but not by direct oxidation of N$_2$.
+
+In summary, we speculate that life has not evolved to consume the CO$_2$-N$_2$-CH$_4$-H$_2$O and O$_2$-N$_2$-H$_2$O disequilibrium because these reactions are kinetically insurmountable for biology. We hypothesize that these reactions will be biochemically prohibited elsewhere on Earth-like exoplanets, which is a testable hypothesis 
+(Section \ref{}).
+
+\subsection{Chemical disequilibrium as a biosignature or anti-biosignature}
