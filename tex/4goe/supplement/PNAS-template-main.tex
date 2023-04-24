@@ -1,0 +1,131 @@
+\documentclass[9pt,twoside,lineno]{pnas-new}
+% Use the lineno option to display guide line numbers if required.
+
+\usepackage{soul}
+
+\templatetype{pnassupportinginfo}
+
+
+\title{Rapid Timescale for an Oxic Transition During the Great Oxidation Event and the Instability of Low Atmospheric O$_2$}
+\author{Nicholas F. Wogan, David C. Catling, Kevin J. Zahnle, and Mark W. Claire}
+\correspondingauthor{Nicholas Wogan\\E-mail: wogan@uw.edu}
+
+\begin{document}
+
+%% Comment out or remove this line before generating final copy for submission; this will also remove the warning re: "Consecutive odd pages found".
+% \instructionspage  
+
+\maketitle
+
+%% Adds the main heading for the SI text. Comment out this line if you do not have any supporting information text.
+\SItext
+
+All Great Oxidation Event (GOE) simulations use the solar spectrum at 2.4 Ga, calculated with methods described in Claire et al. (2012) \cite{Claire_2012}. We also always include chemical rainout and NO production from lightning. 95\% of steady state simulations conserve redox to a factor better than $10^{-6}$. 3\% of models, all with $> 0.1\%$ steady-state O$_2$, conserve redox to a factor of $\sim10^{-3}$. Figure \ref{fig:case1} shows results from steady-state photochemical simulations over the same parameter space as Figure 1 (main text), except using the ``Modern Values'' fluxes from Table 1 in the main text. Figure \ref{fig:eddy_temp} shows assumed eddy diffusion and temperature profiles. 
+
+\section*{Estimating the timescale of the rise of O$_2$}
+
+In the results section of the main text, we estimated the timescale for the rise of O$_2$ using the following equation:
+
+\begin{equation} \label{eq:tau_oxy_SI}
+    \tau_\text{oxy} = \left| \frac{\Delta N_\text{reducing}}{\Delta F_\mathrm{O_{equiv}}} \right|
+\end{equation}
+Applying this equation to the Figure 2b (main text) simulation:
+
+\begin{equation}
+\begin{split}
+\Delta F_\mathrm{O_{equiv}} &= (2 F_\mathrm{O_2}^\text{final} - 4 F_\mathrm{CH_4}^\text{final}) - (2 F_\mathrm{O_2}^\text{initial} - 4 F_\mathrm{CH_4}^\text{initial}) \\
+&= (2(1.8\times10^{12}) - 4(8.1\times10^{11})) - (2(1.0\times10^{12}) - 4(4.5\times10^{11})) \\
+&= 1.6 \times 10^{11} \:\mathrm{molecules}\:\mathrm{cm^{-2}}\:\mathrm{s^{-1}}
+\end{split}
+\end{equation}
+
+\begin{equation} \label{eq:tau_oxy_case1}
+    \tau_\text{oxy} = \left| \frac{\Delta N_\text{reducing}}{\Delta F_\mathrm{O_{equiv}}} \right| = \left|\frac{1.47 \times 10^{23}} {1.6 \times 10^{11}} \right| = 9.8 \times 10^{11} \: \text{s} = 29,000 \: \text{years}
+\end{equation}
+This estimation is about a factor of two smaller than the $\sim$60,000 years predicted by our time-dependent photochemical model. 
+
+Figure \ref{fig:column_rate} shows the column of reducing gases and its destruction rate during the Figure 2b simulation. Our estimation for the timescale of oxygenation (Equation \eqref{eq:tau_oxy_case1}) is off by a factor of two because the reducing column evolves over time, and our estimation of its destruction rate ($\Delta F_\mathrm{O_{equiv}}$) is too large. In the photochemical model, chemistry and transport does not permit a reducing column destruction rates identical to the imposed change in redox fluxes at the surface ($1.6 \times 10^{11}$ O molecules cm$^{-2}$ s$^{-1}$).
+
+\section*{A Large Igneous Province may have destabilized atmospheric oxygen}
+
+
+Here, we show that the H$_2$ and CO outgassing from large igneous provinces (LIPs), or massive volcanic eruptions, could have potentially caused the collapse of transitional O$_2$ concentrations ($\sim 10^{-8}$ to $\sim 10^{-4}$ mixing ratio). 
+
+To compute H$_2$ and CO outgassing rates from LIPs, we use the outgassing model described in \cite{Wogan_2020}. To briefly summarize, the model estimates the composition of gas bubbles suspended in magma just prior to release into the overlying atmosphere or ocean. Gas composition is computed by solving a system of equations including solubility relationships for H$_2$O and CO$_2$, gas-phase equilibrium relationships, and mass conservation of hydrogen and carbon. The model has five inputs: Magma oxygen fugacity, temperature, and overburden pressure, and the H$_2$O and CO$_2$ mass fractions ($m_\mathrm{H_2O}^\mathrm{tot}$, and $m_\mathrm{CO_2}^\mathrm{tot}$) in the magma before degassing occurs. For LIPs, we assume a magma oxygen fugacity one log-unit below the fayalite-magnetite-quartz mineral redox buffer (i.e. $\Delta$FMQ-1) following Archean proxies \cite{Aulbach_2016}. See Chapter 7 in \cite{Catling_2017} for a description of the fayalite-magnetite-quartz redox buffer. Additionally, we use $m_\mathrm{H_2O}^\mathrm{tot} = 0.5$ wt\% and $m_\mathrm{CO_2}^\mathrm{tot} = 0.05$ wt\% which agrees with estimates of LIP volatile concentrations \cite{Wallace_2015}. Finally, we take the degassing temperature and pressure to be 1473 K and 1 bar, respectfully. With these inputs, our outgassing model predicts $1.6 \times 10^{-2}$ mol H$_2$/kg magma and $1.7 \times 10^{-3}$ mol CO/kg magma. 
+
+Converting gas production rates (e.g. mol H$_2$/kg magma) into gas fluxes to the atmosphere requires estimations of magma eruption rates during LIPs. Basaltic LIPs typically last several million years and cumulatively produce $>3 \times 10^{18}$ kg magma \cite{Self_2015}. This magma is release over 10s to 100s of eruptions each lasting several years to 10s of years with eruptions rates between $3 \times 10^{13}$ to $3 \times 10^{15}$ kg magma yr$^{-1}$ \cite{Bryan_2010}. Multiplying these eruption rates by calculated gas production yields H$_2$ fluxes between $1.9 \times 10^9$ and $1.9 \times 10^{11}$ molecules cm$^{-2}$ s$^{-1}$ and CO fluxes between $2.0 \times 10^8$ and $2.0 \times 10^{10}$ molecules cm$^{-2}$ s$^{-1}$. 
+
+The time-dependent photochemical simulation shown in Figure \ref{fig:volc} shows how atmospheric O$_2$ responds to maximum LIP H$_2$ and CO outgassing scenario. The simulation starts with an atmosphere initially at equilibrium, then at $t = 0$ years, we increase the H$_2$ and CO outgassing fluxes by $1.9 \times 10^{11}$ and $2.0 \times 10^{10}$ molecules cm$^{-2}$ s$^{-1}$, respectfully. O$_2$ drops from $2 \times 10^{-5}$ to $4 \times 10^{-9}$ in 100 years. Basaltic LIP eruptions can last for 10s of years \cite{Bryan_2010}, so a 100 year eruption, which is required to cause O$_2$ to collapse, is within the realm of possibility. However, the period of anoxia would likely be maintained for only a few hundred years, until the eruption ceased. Several periods of anoxia, each corresponding to a significant eruption, might occur during an entire several-million-year LIP event.
+
+\hl{It is unclear whether a 100 year period of anoxia is detectable in the geologic record of multiple sulfur isotopes. A single sample from the sedimentary record might represent a period of time greater than 100 years, thus containing sulfur from both an oxic and anoxic atmosphere, diluting the S-MIF signal. Evaluating the detectability of short-term anoxia in the sedimentary record of sulfur isotopes is an interesting target for future work coupling in-situ and bulk rock measurements \mbox{\cite{Meyer_2017}}.}
+
+LIPs may have additional effects on the atmosphere that we are not accounting for in the above calculations. For example, increased Cl outgassing could catalyze O$_3$ and CH$_4$ destruction (e.g. $\mathrm{Cl} + \mathrm{O_3} \rightarrow \mathrm{ClO} + \mathrm{O_2}$ and $\mathrm{Cl} + \mathrm{CH_4} \rightarrow \mathrm{HCl} + \mathrm{CH_3}$), which could have a non-trivial effect on the O$_2$ concentration.
+
+\section*{CVODE numerical integrator}
+
+
+To accurately track atmospheric chemistry over time with our photochemical model, we use the CVODE BDF ODE solver. The reasons CVODE BDF can reliably solve the continuity equation over time are its method of timestep selection and local error control. At each timestep, CVODE estimates the local error that will be introduced with a given timestep size. If the local error is less than the accuracy requirement specified by the user, then the step is accepted and the integration proceeds. Otherwise, the step is rejected, and CVODE retries with a smaller timestep. This general approach is standard in production-grade ODE solvers and will guarantee that each step introduces less local error than that specified by the user \cite{Hairer_1996}. The time stepping approach in the older versions of the \emph{Atmos} photochemical model does not estimate the local error introduced with each step, and thus the inaccuracies introduced with integration. This makes it very challenging to determine whether an integration is a good approximation of the true solution or not.
+
+CVODE BDF is also several times faster, depending on the problem, than the backward Euler implementation in older versions of \emph{Atmos}. CVODE uses implementations of the backward differential formulae that are up to 5\textsuperscript{th} order accurate. Backward Euler is 1\textsuperscript{st} order accurate. Higher order ODE integration methods are generally faster because they can take larger timesteps compared to lower order methods while achieving the same accuracy. CVODE also only computes a new Jacobian every few steps when a new one is needed, while the original integrator in \emph{Atmos} computed a Jacobian every single timestep. Jacobians are expensive to compute, thus fewer Jacobian calculations means a faster program.
+
+In addition to implementing time-accurate integration, PhotochemPy is distinct from \emph{Atmos} in a several other ways. The list below highlights the most important differences.
+
+\begin{itemize}
+\item
+  We restructured the Fortran 77 code using modern Fortran practices.
+  Refactoring in modern Fortran allows more program bugs to be caught
+  during compilation.
+\item
+  We significantly reduced hard-coding in the model, increasing model
+  generality. PhotochemPy can model vastly different
+  atmospheres such as Saturn, Earth, or Mars with minimal parameter
+  changes which are clear to the user, and not buried deep in the source
+  code.
+\item
+  We also used the Numpy F2PY tool to generate a deep Python interface
+  to the compiled Fortran \cite{Peterson_2009}. This enables easy parallel
+  photochemical integrations using Python multiprocessing tools.
+\item
+  We introduced extensive call-back errors, which significantly reduces
+  the chances of unnoticed bugs, like a reaction rate which is entered
+  incorrectly.
+\end{itemize}
+
+
+%%% Each figure should be on its own page
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{figures/ModernValues_sweep.pdf}
+\caption{Identical to Figure 1 in the main text, except we use the ``Modern Values'' surface fluxes in Table 1 in the main text. The time-dependent photochemical simulation shown in Figure 2b (main text), is indicated with a black arrow.}
+\label{fig:case1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{figures/A1_temp_eddy.pdf}
+\caption{The temperature and eddy diffusion used for every simulation.}
+\label{fig:eddy_temp}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{figures/Column_rates.pdf}
+\caption{Reducing gas column and its destruction rate for the simulation shown in Figure 2b.}
+\label{fig:column_rate}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{figures/Volcanism.pdf}
+\caption{Modeled oxic to anoxic transition caused by H$_2$ and CO outgassing from a large igneous province eruption. The simulation begins with a photochemical equilibrium atmosphere, and then is perturbed by a stepwise increase of the H$_2$ and CO flux by $1.9 \times 10^{11}$ and $2.0 \times 10^{10}$ molecules cm$^{-2}$ s$^{-1}$, respectfully. A LIP eruption should able to produce these outgassing fluxes for the 100 years required to cause O$_2$ to collapse (see text).}
+\label{fig:volc}
+\end{figure}
+
+%%% Add this line AFTER all your figures and tables
+\FloatBarrier
+
+\movie{Time dependent photochemical model of the rise of oxygen. This is the same simulation that is shown in Figure 2c in the main text. Left-hand plot shows the mixing ratio of several key species as a function of altitude and time. Right-hand plot shows the photon flux at the top of the atmosphere and the surface as a function of photon wavelength and time. As oxygen rises, and an ozone layer develops, almost all photons $<300$ nm are shielded from the surface.}
+
+\bibliography{pnas-sample}
+
+\end{document}
