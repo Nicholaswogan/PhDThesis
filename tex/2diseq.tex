@@ -122,7 +122,8 @@ We determined the initial state of the atmosphere using the surface mixing ratio
   \caption{Assumed initial atmosphere-ocean composition for the prebiotic and biotic early Earth.}
   \label{tab:assumed_comp}
   \begin{center}
-  \begin{tabularx}{0.95\linewidth}{p{0.2\linewidth} p{0.25\linewidth} p{0.45\linewidth}}
+
+  \begin{tabularx}{1.0\linewidth}{ >{\hsize=.1\hsize\raggedright\arraybackslash}X >{\hsize=.35\hsize\centering\arraybackslash}X  >{\hsize=.55\hsize\centering\arraybackslash}X }
     \hline \hline
     Ocean Species & Molality (mol/kg) & Reference/explanation \\
     \hline
@@ -286,3 +287,69 @@ In summary, we speculate that life has not evolved to consume the CO$_2$-N$_2$-C
 (Section \ref{}).
 
 \subsection{Chemical disequilibrium as a biosignature or anti-biosignature}
+
+Throughout Earth's history, the available Gibbs energy of the atmosphere-ocean system varied substantially (Figure \ref{fig:diseq_figure3}), and there is no one-to-one relationship between the magnitude of Gibbs energy and the presence of life. In both prebiotic and modern times, the atmosphere-ocean disequilibrium was relatively large ($\sim 1000$s J/mol), so high disequilibrium alone is not a reliable sign of life. Lower disequilibrium ($\sim 100$s) is also an ambiguous biosignature on its own because there were large spans of Earth's inhabited history when disequilibrium was comparable to the available Gibbs energy of Mars' atmosphere (136 J/mol) \citep{KrissansenTotton_2016}.
+
+However, disequilibrium is useful to determine the presence or absence of life if you know which particular species are responsible for the disequilibrium. The species causing the prebiotic and modern disequilibrium are different even though the magnitude of disequilibrium is similar. Before life appeared, atmospheric disequilibrium was dominated by H$_2$-CO$_2$, and CO-H$_2$O, while today the most important disequilibrium is O$_2$-N$_2$-H$_2$O. 
+
+Thus, biosignatures and anti-biosignatures arise from looking at both the magnitude of disequilibrium and how ``edible'' the disequilibrium gas mixture is, where ``edibility'' is associated with a low activation energy. An atmosphere-ocean with ``edible'' disequilibrium is an anti-biosignature because it is a sign that life is not consuming disequilibria that has kinetic barriers that are easily biologically surmountable (Table \ref{tab:diseq_table2}). One example is the prebiotic Earth, which likely had large amounts of ``edible'' free energy from the H$_2$-CO$_2$ and CO-H$_2$O disequilibria. If chemotrophs were present, these ``edible'' disequilibria would mostly be destroyed.
+
+\begin{table}
+  \caption{Assumed initial atmosphere-ocean composition for the prebiotic and biotic early Earth.}
+  \label{tab:diseq_table2}
+  \begin{center}
+  \begin{tabularx}{1.0\linewidth}{| >{\hsize=.2\hsize\centering\arraybackslash}X || >{\hsize=.4\hsize\centering\arraybackslash}X | >{\hsize=.4\hsize\centering\arraybackslash}X |}
+  \hline
+  & Primarily ``edible'' disequilibria (low activation energy) & Primarily ``inedible'' disequilibria (high activation energy)
+  \\
+  \hline
+  \multirow{2}{=}{\centering Atmosphere-ocean in disequilibrium} & \textbf{Anti-biosignature} &  \textbf{Biosignature}
+  \\
+  & The presence of uneaten "edible" food should be consumed by biology. & Life has consumed most of the "edible" food produced by geology and photosynthetic life (if present) and has left the "inedible" food untouched. The magnitude of the "inedible" disequilibrium should be larger if phototrophs are present, and smaller if only chemotrophs are present.
+  \\
+  \hline
+  \multirow{2}{=}{\centering Atmosphere-ocean near equilibrium} & \multicolumn{2}{>{\hsize=.8\hsize\centering\arraybackslash}X |}{\textbf{Anti-biosignature}}
+  \\
+  & \multicolumn{2}{>{\hsize=.8\hsize\centering\arraybackslash}X |}{Although chemotrophic life destroys disequilibrium, it is unlikely to drive a system to complete thermodynamic equilibrium. Chemotrophic metabolisms produce waste gases that are "inedible," so they leave some fraction of a planet’s disequilibrium unconsumed. Therefore, a planet near equilibrium instead will be characterized by small abiotic disequilibrium resulting from photochemistry or small volcanic fluxes, if volcanism is present. The planet is very likely uninhabited although an extremely meager, undetectable biosphere cannot be excluded.}
+  \\
+  \hline
+  \end{tabularx}
+  \end{center}
+\end{table}
+
+A separate example of an anti-biosignature is Mars' atmosphere, which has a fairly large available Gibbs energy ($\sim 136$ J/mol) mostly because of photochemically produced CO and O$_2$ \citep{KrissansenTotton_2016}. This free energy could be consumed by aerobic carboxydotrophic organisms \citep{Sholes_2019}. If a substantial biosphere were present, then it would consume this ``edible'' free lunch because a known enzyme (aerobic CO dehydrogenase) makes CO readily consumable with an activation energy ranging $\sim 20$ to $95$ kJ/mol \citep{King_2013,Xie_2009}. Strictly speaking, then, an anti-biosignature provides an upper limit on biomass \citep{Sholes_2019}.
+
+An atmosphere-ocean with primarily ``inedible'' disequilibrium (with an insurmountable activation energy barrier) is a biosignature (top right of Table \ref{tab:diseq_table2}). In this case, chemotrophs have consumed most of the ``edible'' free energy produced by geology or photosynthesis (if present) and have left ``inedible'' redox couples untouched. Some small amount of ``edible'' disequilibrium will always remain, because gas fluxes from the atmosphere into habitable bodies of water will be limited by the water boundary layer \citep{Liss_1974}. The magnitude of the ``inedible'' disequilibrium should be larger if phototrophs are present. While life has been present on Earth, the coexistence of ``inedible'' CO$_2$-N$_2$-CH$_4$-H$_2$O or O$_2$-N$_2$-H$_2$O has persisted in Earth's atmosphere-ocean system (Figure \ref{fig:diseq_figure3}), and ``edible'' disequilibrium has been absent because of chemotrophs.
+
+A planet very near thermodynamic equilibrium most likely does not have life (lower row of Table \ref{tab:diseq_table2}). Although chemotrophs destroy disequilibrium, they did not drive Earth's atmosphere-ocean system to complete equilibrium in the Archean. Chemotrophs on Earth produce waste gas such as CH$_4$ (Equation \eqref{eq:methanogens}) that ultimately contribute to disequilibria and therefore life is unable to destroy all atmospheric disequilibrium.
+
+The difference between the upper left and lower row of Table \ref{tab:diseq_table2} is a question of degree. The upper left represents an anti-biosignature applicable to a large disequilibrium, such as prebiotic Earth $\sim 103$ J/mol or of modern Mars $\sim 102$ J/mol. In contrast, the lower row of Table \ref{tab:diseq_table2} is applicable to a planet such as Venus, where the near-surface temperature drives the atmosphere very close to equilibrium with a disequilibrium of 0.06 J/mol \citep{KrissansenTotton_2016}. Also in this category are giant planets, such as Jupiter, where deep convective mixing produces a gas mixture very near chemical equilibrium ($\sim 0.001$ and the small disequilibrium is purely photochemical.)
+
+Some biospheres that are nutrient-limited (e.g., limited by fixed N or P) may not follow Table \ref{tab:diseq_table2}. For example, a nutrient-limited chemotrophic biosphere may not be able to consume all of the ``edible'' disequilibrium in the atmosphere. In this case, sizable ``edible'' disequilibrium might coexist with life, which contradicts the upper-left panel of Table \ref{tab:diseq_table2}. Most literature has argued that the pre-photosynthetic Earth was probably energy-limited (not nutrient-limited) \citep{Canfield_2006,Kharecha_2005,Ward_2019}, therefore it might be reasonable to expect other purely chemotrophic biospheres to be energy-limited.
+
+There are some cases where even a productive biosphere can coexist with edible atmospheric disequilibrium. This is because there are limits to how quickly gases can be transported from the atmosphere, into the ocean where they can be consumed by life \citep{Kharecha_2005}. For example, consider a planet with a very large volcanic CO flux (e.g. $100\times$ modern). CO could build up in this planet's atmosphere even if CO consumers were present in an ocean, because CO transport from the atmosphere to the ocean would not be sufficient to maintain low atmospheric CO \citep{Schwieterman_2019}. While coexistence of productive biospheres and edible disequilibrium is conceivable, it might be unlikely on exoplanets, given that it probably did not occur during all of Earth's history (Figure \ref{fig:diseq_figure3}).
+
+These aforementioned caveats to Table \ref{tab:diseq_table2} highlights the importance of inferring fluxes of gases to further evaluate disequilibrium biosignatures \citep{KrissansenTotton_2018_diseq,Simoncini_2013}. The indicator of biology is a surface flux of gases not explained by geology, although the atmospheric composition resulting from a biological flux depends on many factors like the host star's spectrum, or volcanic outgassing rates \citep{Segura_2005}. Therefore, it makes sense to infer surface fluxes of disequilibrium gases and then compare inferred fluxes to dead processes. Fluxes unexplained by dead processes are evidence for life. Detailed consideration of fluxes is beyond the scope of this paper.
+
+\subsection{Detecting the prebiotic Earth disequilibrium anti-biosignature}
+
+The prebiotic disequilibrium anti-biosignature is, in principle, remotely detectable on exoplanets. Strong spectral signatures of atmospheric CO$_2$, CO and H$_2$O exist, and could be detected with reflectance or transmission spectroscopy (see Table 3 in \citet{Catling_2018}). The presence of prebiotic H$_2$ could be inferred with its spectral feature at 2.12 $\mu$m, or its continuous features in the near-infrared and $< 0.08$ $\mu$m. H$_2$ could also be detected by combining several spectral methods. Ultraviolet transmission spectroscopy can be used to observe hydrogen escape because hydrogen absorbs stellar Lyman-alpha. This has been done for warm Neptunes \citep{Ehrenreich_2015}, and could be done for Earth sized planets with future telescopes \citep{Fujii_2018}. If CH$_4$ and stratospheric H$_2$O were ruled out with transmission spectroscopy, then the hydrogen escape must result from H$_2$ in the atmosphere. 
+
+\section{Conclusions}
+
+Given our current knowledge of photochemistry and Earth's Hadean atmosphere, we calculate that Earth's prebiotic atmosphere was in thermodynamic chemical disequilibrium due primarily to volcanic outgassing, and that the advent of chemosynthetic life destroyed much of this disequilibrium through its metabolism. Subsequently, disequilibrium rose for the rest of Earth's history primarily because oxygenic photosynthesis maintained high O$_2$ and N$_2$ levels, directly and indirectly, respectively.
+
+In the prebiotic era, volcanically produced H$_2$-CO$_2$ and CO-H$_2$O were the largest contributors to the atmosphere-ocean available Gibbs energy. After the origin of life, chemotrophs consumed most of the prebiotic free energy, although the atmosphere-ocean system remained in disequilibrium because of biological waste gases: CO$_2$, CH$_4$, N$_2$ and liquid water. After the Great Oxidation Event, the magnitude of the available Gibbs energy rose, and was instead dominated by O$_2$, N$_2$ and liquid water.
+
+Earth's history reveals a different relationship between life and atmospheric chemical disequilibrium than was first proposed by \citet{Lovelock_1965}. \citet{Lovelock_1965} argued that planets with life should be in disequilibrium and that dead worlds should be near equilibrium, although we have shown that this was not true and was subtler for the first billion years of Earth history.
+
+We suggest that chemotrophs never evolved to consume the CO$_2$-N$_2$-CH$_4$-H$_2$O disequilibrium prior to atmospheric oxygenation and O$_2$-N$_2$-H$_2$O disequilibrium after oxygenation because the reaction of these groups of species has insurmountable activation energy barriers. In contrast, the reactions between H$_2$ and CO$_2$ or CO and H$_2$O have activation energy barriers that can be lowered by enzymes, so that these redox couples readily support microbial metabolisms.
+
+The large prebiotic ``edible'' disequilibrium between H$_2$ and CO$_2$ or CO and H$_2$O is therefore an anti-biosignature because these easily metabolized species should be consumed by chemotrophs. A planet that is dominated by ``inedible'' disequilibria such as CO$_2$-N$_2$-CH$_4$-H$_2$O or O$_2$-N$_2$-H$_2$O has signs of biology because these disequilibria show that life has consumed most the ``edible'' food produced by abiotic processes and has created ``inedible'' disequilibria with continuous fluxes of waste gases.
+
+The mere detection of ``edible'' or ``inedible'' disequilibria is not a definitive sign of the presence or absence of life.  A full evaluation of disequilibria would compare inferred surface fluxes of disequilibrium gases to plausible abiotic surface fluxes, which is further work beyond the focus of the present paper.
+
+\section{Chapter Appendix}
+
+\subsubsection{Volcanic Outgassing Fluxes}
+

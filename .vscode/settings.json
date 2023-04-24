@@ -10,6 +10,7 @@
     "anoxygenic",
     "biosignature",
     "biosignatures",
+    "carboxydotrophic",
     "chemoautotrophic",
     "chemotrophic",
     "chemotrophs",
@@ -31,6 +32,7 @@
     "MORB",
     "NCCN",
     "Neoproterozoic",
+    "nitrogenase",
     "nucleobases",
     "Photochem",
     "photolyzing",
@@ -44,10 +46,12 @@
     "serpentinization",
     "serpentinizing",
     "subaerial",
+    "SUPCRT",
     "Tmol",
     "ultramafic",
     "uncatalyzed",
     "undegassed",
-    "Wustite"
+    "Wustite",
+    "Zeldovich's"
   ]
 }
