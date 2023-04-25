@@ -351,5 +351,127 @@ The mere detection of ``edible'' or ``inedible'' disequilibria is not a definiti
 
 \section{Chapter Appendix}
 
-\subsubsection{Volcanic Outgassing Fluxes}
+\subsection{Volcanic Outgassing Fluxes}
 
+One input for the model of photochemistry coupled to a microbial ecosystem is the flux of volcanic outgassing. Here we describe how plausible prebiotic volcanic fluxes are calculated. 
+
+We assume that gases emitted by a volcanic melt achieve thermodynamic equilibrium. The reactions governing equilibrium of volcanic gases are
+
+\begin{gather}
+  \mathrm{H_2O} \leftrightarrow \mathrm{H_2} + \frac{1}{2} \mathrm{O_2} \\
+  \mathrm{CO_2} \leftrightarrow \mathrm{CO} + \frac{1}{2} \mathrm{O_2} \\
+  \mathrm{CO_2} + 2 \mathrm{H_2O} \leftrightarrow \mathrm{CH_4} + 2 \mathrm{O_2} \\
+  \mathrm{SO_2} + \mathrm{H_2O} \leftrightarrow \mathrm{H_2S} + \frac{3}{2} \mathrm{O_2}
+\end{gather}
+
+At equilibrium, the ratios of the fugacities of volatile species (denoted $f_x$) are related to the equilibrium constant corresponding to each chemical reaction. The fugacities of each species are well approximated by magma chamber partial pressures (denoted $P_x$) because we consider low pressures and high temperatures (5 bar and 1473 K, following \citet{Holland_1984}), so non-ideal corrections can be ignored. 
+
+\begin{equation}
+  \label{eq:K_1_equilibrium}
+  K_1 = \frac{f_\mathrm{H_2} f_\mathrm{O_2}^{0.5}}{f_\mathrm{H_2O}} = \frac{P_\mathrm{H_2} f_\mathrm{O_2}^{0.5}}{P_\mathrm{H_2O}}
+\end{equation}
+\begin{equation}
+  K_2 = \frac{f_\mathrm{CO} f_\mathrm{O_2}^{0.5}}{f_\mathrm{CO_2}} = \frac{P_\mathrm{CO} f_\mathrm{O_2}^{0.5}}{P_\mathrm{CO_2}}
+\end{equation}
+\begin{equation}
+  K_3 = \frac{f_\mathrm{CH_4} f_\mathrm{O_2}^{2}}{f_\mathrm{CO_2} f_\mathrm{H_2O}^2} = \frac{P_\mathrm{CH_4} f_\mathrm{O_2}^{2}}{P_\mathrm{CO_2} P_\mathrm{H_2O}^2} 
+\end{equation}
+\begin{equation}
+  K_4 = \frac{f_\mathrm{H_2S} f_\mathrm{O_2}^{1.5}}{f_\mathrm{SO_2} f_\mathrm{H_2O}} = \frac{P_\mathrm{H_2S} f_\mathrm{O_2}^{1.5}}{P_\mathrm{SO_2} P_\mathrm{H_2O}} 
+\end{equation}
+
+We calculate equilibrium constants for temperature $T = 1473$ K using the NASA thermodynamic database \citep{Burcat_2005}. Additionally, we estimate the oxygen fugacity ($f_\mathrm{O_2}$) of prebiotic volcanic gases by a linear regression through data obtained from \citet{Aulbach_2016} 
+(Figure \ref{}). % 5
+We take $\log_{10}\left(f_\mathrm{O_2}\right) = \mathrm{FMQ} - 1.48$ at 4.0 Ga as a prebiotic value. At the temperatures and pressures we consider ($T = 1473$ K and  $P = 5$ bar), $\log_{10}\left(\mathrm{FMQ}\right) = -8.47$, our Gibbs energy calculations are fairly insensitive to the chosen oxygen fugacity at 4 Ga. Changing the oxygen fugacity by 1 log unit changes our calculated Gibbs energy results by a factor of $\sim 2$ 
+(See Appendix \ref{}). % B.3
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{tex/2diseq/Figure5.pdf}
+  \caption{Weighted linear fit of mantle redox proxies from \citet{Aulbach_2016}. At 4 Ga, the linear fit predicts $\log_{10}\left(f_\mathrm{O_2}\right) = \mathrm{FMQ} - 1.48$.}
+  \label{fig:diseq_figure5}
+\end{figure}
+
+We also assume that the ratio of carbon to hydrogen ($\chi_\mathrm{C}$), and sulfur to hydrogen ($\chi_\mathrm{S}$) in volcanic gases has remained constant through Earth's history. This is a reasonable assumption because these ratios depend most on the pressure of degassing \citep{Gaillard_2014}, i.e., the atmospheric pressure into which the gases are released, and atmospheric pressure has probably has not changed by orders of magnitude over Earth's history \citep{Som_2012}. 
+
+\begin{equation}
+  \frac{P_\mathrm{CO_2} + P_\mathrm{CO} + P_\mathrm{CH_4}}{P_\mathrm{H_2} + P_\mathrm{H_2O} + 2 P_\mathrm{CH_4} + P_\mathrm{H_2S}} = \chi_\mathrm{C}
+\end{equation}
+\begin{equation}
+  \label{eq:chi_sulfur}
+  \frac{P_\mathrm{H_2S} + P_\mathrm{SO_2}}{P_\mathrm{H_2} + P_\mathrm{H_2O} + 2 P_\mathrm{CH_4} + P_\mathrm{H_2S}} = \chi_\mathrm{S}
+\end{equation}
+
+We calculate $\chi_\mathrm{C}$ and $\chi_\mathrm{S}$ using modern values of total volcanic outgassing which we take from \citet{Catling_2017}, Chapter 7 (their Table 7.1). The total fluxes of hydrogen, carbon and sulfur are given by summing all species weighted by the number of atoms each species contains (e.g. $F_\mathrm{H_2} + F_\mathrm{H_2O} + 2 F_\mathrm{CH_4} + F_\mathrm{H_2S} = F_\mathrm{hydrogen}^\mathrm{mod}$). The ratios of total fluxes are then calculated in the following way: 
+
+\begin{equation}
+  \chi_\mathrm{C} = \frac{F_\mathrm{carbon}^\mathrm{mod}}{F_\mathrm{hydrogen}^\mathrm{mod}}
+\end{equation}
+
+\begin{equation}
+  \chi_\mathrm{S} = \frac{F_\mathrm{sulfur}^\mathrm{mod}}{F_\mathrm{hydrogen}^\mathrm{mod}}
+\end{equation}
+
+\begin{table}
+  \caption{Modern mantle-sourced volcanic outgassing fluxes and ratios}
+  \label{tab:diseq_table3}
+  \centering
+  \begin{tabular}{| c | c | c | c | c | c | c || c | c | c || c | c |}
+    \hline
+    \multicolumn{7}{| c ||}{Modern Volcanic Fluxes (Tmol/yr)} & \multicolumn{3}{c ||}{Total Modern Fluxes (Tmol/yr)} & \multicolumn{2}{c |}{Ratios} 
+    \\
+    \hline
+    CO$_2$ & H$_2$O & SO$_2$ & H$_2$ & CO & CH$_4$ & H$_2$S & $F_\mathrm{hydrogen}^\mathrm{mod}$ & $F_\mathrm{carbon}^\mathrm{mod}$ & $F_\mathrm{sulfur}^\mathrm{mod}$ & $\chi_\mathrm{C}$ & $\chi_\mathrm{S}$
+    \\
+    \hline
+    8.5 & 95 & 1.8 & 2.0 & 0.25 & 0 & 0.03 & 97.03 & 8.75 & 1.83 & 0.090 & 0.019 
+    \\
+    \hline
+    \multicolumn{12}{>{\raggedright\arraybackslash}p{\textwidth}}{Note - Fluxes of CO$_2$, H$_2$O, SO$_2$, and H$_2$S are from \citet{Catling_2017} p. 203 and p. 212. Fluxes of H$_2$, CO, and CH$_4$ are calculated using equilibrium (e.g., Equation \eqref{eq:K_1_equilibrium} with Equation \eqref{eq:flux_ratios}) and assuming $T = 1473$ K, $P = 5$ bar, and $\log_{10}\left(f_\mathrm{O_2}\right) = \mathrm{FMQ}$. The total modern fluxes ($F_x^\mathrm{mod}$), and ratios $\chi_\mathrm{C}$ and $\chi_\mathrm{S}$ are calculated using the modern outgassing fluxes. Methods for this calculation are detailed in the text.}
+  \end{tabular}
+\end{table}
+
+Modern fluxes, and ratios are given in Table \ref{tab:diseq_table3}. We also assume that the partial pressures sum to the magma chamber total pressure:
+
+\begin{equation}
+  \label{eq:total_pressure}
+  P_\mathrm{H_2} + P_\mathrm{H_2O} + P_\mathrm{CH_4} + P_\mathrm{H_2S} + P_\mathrm{SO_2} + P_\mathrm{CO_2} + P_\mathrm{CO} = P 
+\end{equation}
+
+Equations \eqref{eq:K_1_equilibrium} - \eqref{eq:chi_sulfur} and \eqref{eq:total_pressure} are a system of 7 equations with 7 unknown partial pressures ($P_\mathrm{H_2}$, $P_\mathrm{H_2O}$, etc.), which can be solved with some algebraic manipulation.
+
+With the partial pressures in hand, we can calculate plausible prebiotic volcanic outgassing fluxes with another system of equations: 
+
+\begin{gather}
+  \frac{F_\mathrm{H_2}}{F_\mathrm{H_2O}} = \frac{P_\mathrm{H_2}}{P_\mathrm{H_2O}} \label{eq:flux_ratios} \\
+  \frac{F_\mathrm{CO}}{F_\mathrm{CO_2}} = \frac{P_\mathrm{CO}}{P_\mathrm{CO_2}} \\
+  \frac{F_\mathrm{CH_4}}{F_\mathrm{CO_2}} = \frac{P_\mathrm{CH_4}}{P_\mathrm{CO_2}} \\
+  \frac{F_\mathrm{H_2S}}{F_\mathrm{SO_2}} = \frac{P_\mathrm{H_2S}}{P_\mathrm{SO_2}} \\
+  F_\mathrm{H_2} + F_\mathrm{H_2O} + 2 F_\mathrm{CH_4} + F_\mathrm{H_2S} = F_\mathrm{hydrogen} \\
+  F_\mathrm{CO_2} + F_\mathrm{CO} + F_\mathrm{CH_4} = F_\mathrm{carbon} \\
+  F_\mathrm{SO_2} + F_\mathrm{H_2S} = F_\mathrm{sulfur} \label{eq:total_sulfur_flux}
+\end{gather}
+The first four equations come from assuming that ratios between volcanic fluxes are equal to the corresponding ratios of the partial pressures. The final three equations are sums of the total hydrogen, carbon and sulfur fluxes weighted by the number of atoms in each species. 
+
+The total flux of each species (e.g. $F_\mathrm{hydrogen}$) on the prebiotic Earth is uncertain and depends on the tectonic regime and its association with outgassing. If the Earth lacked plate tectonics and was in a ``stagnant lid'' regime, then heat fluxes could have been the same as modern fluxes despite a much warmer mantle \citep{Korenaga_2009}. On the other hand, if plate tectonics or some similar precursor was active in the Hadean, heat fluxes on the 4 Ga Earth could have been 5 times higher than today's fluxes \citep{Sleep_2001}. Volcanic outgassing can be related to heat flow with a power law.
+
+\begin{equation}
+  F_x = F_x^\mathrm{mod} Q^n
+\end{equation}
+Here, $Q$ is heat flow normalized to present, $F_x$ is the outgassing flux of species $x$, and $n$ is between 1 and 2 \citep{KrissansenTotton_2018_carbon}. Taking 5 and 1 for upper and lower bounds for heat flow ($Q$) at 4 Ga, respectively, and conservatively taking $n = 2$ gives outgassing rates between 1 and 25 times modern outgassing rates. We adopt this large range here to calculate $F_\mathrm{hydrogen}$, $F_\mathrm{carbon}$, and $F_\mathrm{sulfur}$:
+
+\begin{gather}
+  F_\mathrm{hydrogen} = C F_\mathrm{hydrogen}^\mathrm{mod} \\
+  F_\mathrm{carbon} = C F_\mathrm{carbon}^\mathrm{mod} \\
+  F_\mathrm{sulfur} = C F_\mathrm{sulfur}^\mathrm{mod}
+\end{gather}
+Here, $C$ is the outgassing multiplier, which we vary between 1 and 25 to capture the most likely outgassing scenarios on the prebiotic Earth. Equations \eqref{eq:flux_ratios} - \eqref{eq:total_sulfur_flux} are a system of 7 linear equations with 7 unknown volcanic fluxes (e.g. $F_\mathrm{H_2}$), which can be reorganized and solved with matrix inversion. We solve this system for outgassing parameters ($C$) between 1 and 25, which yields a range of outgassing fluxes for each of each of the 7 species.
+
+\subsection{Photochemical Modeling and Gibbs Energy Minimization}
+
+\subsubsection{Photochemical Modeling}
+
+Table \ref{} and Table \ref{} % 4 and 5
+contains most of the boundary conditions used for modeling the prebiotic and chemosynthetic atmospheres respectively with the \textit{Atmos} photochemical model. All species that are not listed in 
+Table \ref{} and Table \ref{} % 4 and 5
+that are in the \textit{Atmos} code, have deposition velocities set to zero.
