@@ -22,10 +22,7 @@ To elucidate these subtleties quantitatively, we use a photochemical model to ca
 
 \section{Methods}
 
-We model the change in atmosphere-ocean chemical disequilibrium between the prebiotic Earth, and Earth influenced by a chemotrophic ecosystem in two steps. First, we simulate atmospheric composition using a photochemical model coupled to a microbial biosphere (in the biotic case), and second, we calculate the atmosphere-ocean disequilibrium of this simulated atmosphere with multiphase Gibbs energy minimization. The following sections briefly describe both of these steps, and the Appendices 
-\ref{} % A
-and \ref{} % B
-contain more detailed methods. The Python, Fortran and MATLAB source code is available on Github at \url{https://github.com/Nicholaswogan/Wogan_and_Catling_2020}.
+We model the change in atmosphere-ocean chemical disequilibrium between the prebiotic Earth, and Earth influenced by a chemotrophic ecosystem in two steps. First, we simulate atmospheric composition using a photochemical model coupled to a microbial biosphere (in the biotic case), and second, we calculate the atmosphere-ocean disequilibrium of this simulated atmosphere with multiphase Gibbs energy minimization. The following sections briefly describe both of these steps, and the Chapter Appendices \ref{sec:diseq_a} and \ref{sec:diseq_b} contain more detailed methods. The Python, Fortran and MATLAB source code is available on Github at \url{https://github.com/Nicholaswogan/Wogan_and_Catling_2020}.
 
 \subsection{Modeling the Hadean Atmosphere}
 
@@ -33,11 +30,7 @@ For both the prebiotic and biotic atmospheric compositions, we use the 1-D photo
 
 \subsubsection{Hadean Volcanic Outgassing}
 
-Modeling the atmosphere requires estimates of volcanic outgassing fluxes on the Hadean Earth. These fluxes depend on the redox state of the mantle, which is quantified by the mantle's oxygen fugacity ($f_\mathrm{O_2}$). A more reduced mantle (lower O$_2$ fugacity) expels more reduced gases (e.g., H$_2$) relative to oxidized gases (e.g., H$_2$O). Recent oxygen fugacity proxies indicate that Earth's mantle was more reduced several billion years ago and slowly oxidized \citep{Aulbach_2016,Nicklas_2019}. We linearly extrapolate O$_2$ fugacity data obtained by \citet{Aulbach_2016} backward in time to estimate an O$_2$ fugacity of $\log_{10}\left(f_\mathrm{O_2}\right) = \mathrm{FMQ} - 1.48$ at $\sim 4$ Ga 
-(Appendix \ref{}) % A
-to represent mantle redox state around the time of the origin of life. Here, FMQ is the fayalite-magnetite-quartz buffer which is a synthetic reference $f_\mathrm{O_2}$ value at fixed temperature-pressure conditions. Sensitivity of calculated disequilibrium to $f_\mathrm{O_2}$ is relatively small. Changing the oxygen fugacity by 1 log unit changes the calculated atmosphere-ocean chemical disequilibrium by a factor of $\sim 2$ 
-(Appendix \ref{}), % B.3
-which is small compared to other uncertainties in chemical disequilibrium for an assumed prebiotic Earth at 4 Ga.
+Modeling the atmosphere requires estimates of volcanic outgassing fluxes on the Hadean Earth. These fluxes depend on the redox state of the mantle, which is quantified by the mantle's oxygen fugacity ($f_\mathrm{O_2}$). A more reduced mantle (lower O$_2$ fugacity) expels more reduced gases (e.g., H$_2$) relative to oxidized gases (e.g., H$_2$O). Recent oxygen fugacity proxies indicate that Earth's mantle was more reduced several billion years ago and slowly oxidized \citep{Aulbach_2016,Nicklas_2019}. We linearly extrapolate O$_2$ fugacity data obtained by \citet{Aulbach_2016} backward in time to estimate an O$_2$ fugacity of $\log_{10}\left(f_\mathrm{O_2}\right) = \mathrm{FMQ} - 1.48$ at $\sim 4$ Ga (Chapter Appendix \ref{sec:diseq_a}) to represent mantle redox state around the time of the origin of life. Here, FMQ is the fayalite-magnetite-quartz buffer which is a synthetic reference $f_\mathrm{O_2}$ value at fixed temperature-pressure conditions. Sensitivity of calculated disequilibrium to $f_\mathrm{O_2}$ is relatively small. Changing the oxygen fugacity by 1 log unit changes the calculated atmosphere-ocean chemical disequilibrium by a factor of $\sim 2$ (Chapter Appendix \ref{sec:diseq_b3}), which is small compared to other uncertainties in chemical disequilibrium for an assumed prebiotic Earth at 4 Ga.
 
 Volcanic outgassing in prebiotic times also depends on the total flux of all volcanic gases. This total depends on the tectonic regime of the ancient Earth, which is debated \citep{Rosas_2018}. If Earth lacked plate tectonics and was in a ``stagnant lid'' regime, then the average heat flux could have been comparable to the modern flux despite a much warmer interior \citep{Korenaga_2009}. On the other hand, if plate tectonics was active in the Hadean, the heat flux on the 4 Ga Earth could have been 5 times higher than today \citep{Sleep_2001}.
 
@@ -57,14 +50,11 @@ Volcanic outgassing is proportional to the heat flux to a power between 1 and 2.
 \end{equation}
 Here, $F_x^\mathrm{mod}$ is the modern outgassing flux of species $x$, and $C$ is an outgassing multiplier that we vary between 1 and 25. Fluxes are calculated in units of molecules cm$^{-2}$ s$^{-1}$.
 
-With estimates of O$_2$ fugacity and total outgassing fluxes, we use equilibrium chemistry of the mantle to calculate plausible outgassing fluxes of individual gases, H$_2$, H$_2$O, CH$_4$, CO$_2$, CO, H$_2$S, and SO$_2$ for $C$ between 1 and 25. Details of these calculations are in 
-Appendix \ref{}. % A
+With estimates of O$_2$ fugacity and total outgassing fluxes, we use equilibrium chemistry of the mantle to calculate plausible outgassing fluxes of individual gases, H$_2$, H$_2$O, CH$_4$, CO$_2$, CO, H$_2$S, and SO$_2$ for $C$ between 1 and 25. Details of these calculations are in Chapter Appendix \ref{sec:diseq_a}.
 
 \subsubsection{Modeling a Prebiotic Atmosphere}
 
-We model the Earth's prebiotic atmosphere for each volcanic outgassing scenario between 1 and 25 times modern outgassing. We use calculated outgassing fluxes of H$_2$, CO, SO$_2$, and H$_2$S as lower boundary conditions to the \textit{Atmos} photochemical model. Additionally, we set a CO deposition velocity to $10^{-8}$ cm s$^{-1}$ to reflect the abiotic uptake of CO by the ocean \citep{Kharecha_2005}. We assume that the abiotic surface flux of CH$_4$ is negligible. This assumption is supported by a recent work on the abiotic formation CH$_4$ on the modern Earth \citep{Fiebig_2019} but is disputed by other studies \citep{Etiope_2013}. All other boundary conditions are specified in 
-Appendix \ref{}. % B.1
-Given volcanic outgassing fluxes and other boundary conditions, \textit{Atmos} calculates the mixing ratios of all species when the atmosphere is at photochemical equilibrium.
+We model the Earth's prebiotic atmosphere for each volcanic outgassing scenario between 1 and 25 times modern outgassing. We use calculated outgassing fluxes of H$_2$, CO, SO$_2$, and H$_2$S as lower boundary conditions to the \textit{Atmos} photochemical model. Additionally, we set a CO deposition velocity to $10^{-8}$ cm s$^{-1}$ to reflect the abiotic uptake of CO by the ocean \citep{Kharecha_2005}. We assume that the abiotic surface flux of CH$_4$ is negligible. This assumption is supported by a recent work on the abiotic formation CH$_4$ on the modern Earth \citep{Fiebig_2019} but is disputed by other studies \citep{Etiope_2013}. All other boundary conditions are specified in Chapter Appendix \ref{sec:diseq_b1}. Given volcanic outgassing fluxes and other boundary conditions, \textit{Atmos} calculates the mixing ratios of all species when the atmosphere is at photochemical equilibrium.
 
 \subsubsection{Modeling an Atmosphere Influenced by a Chemotrophic Ecosystem}
 
@@ -88,9 +78,7 @@ For each volcanic outgassing scenario, we also model atmospheric composition inf
 \end{equation}
 These equations represent the metabolisms of chemosynthetic methanogens (Equation \eqref{eq:methanogens}), acetogenic bacteria (Equation \eqref{eq:acetogenic_bac}), acetotrophic methanogens (Equation \eqref{eq:acetotrophic_meth}), and CO-consuming acetogens (Equation \eqref{eq:acetogenic_co}). We have chosen this ecosystem to represent Earth's biosphere after the origin of life and before the origin of photosynthesis. The actual make-up Earth's biosphere at this time is unknown, but all organisms in our chosen ecosystem are phylogenetically ancient and should have preceded photosynthesis \citep{Adam_2018,Schonheit_2016,Wolfe_2018}, so they are a reasonable representation. 
 
-We model the impact of these various organism on atmospheric composition by setting lower boundary conditions in the photochemical model that reflect their metabolisms. This technique was used by \citet{Kharecha_2005}, and our ecosystem model is nearly identical to their ``case 2'' atmosphere-ecosystem model. The only difference is that the \textit{Atmos} photochemical code is an updated version of the one used by \citet{Kharecha_2005}. Below, we briefly describe how the model works, although a more in-depth account can be found in \citet{Kharecha_2005} p. 58-61. 
-Appendix \ref{} % B.1 
-contains all the boundary conditions that are not listed in the main text.
+We model the impact of these various organism on atmospheric composition by setting lower boundary conditions in the photochemical model that reflect their metabolisms. This technique was used by \citet{Kharecha_2005}, and our ecosystem model is nearly identical to their ``case 2'' atmosphere-ecosystem model. The only difference is that the \textit{Atmos} photochemical code is an updated version of the one used by \citet{Kharecha_2005}. Below, we briefly describe how the model works, although a more in-depth account can be found in \citet{Kharecha_2005} p. 58-61. Chapter Appendix \ref{sec:diseq_b1} contains all the boundary conditions that are not listed in the main text.
 
 Ground-level H$_2$ was likely much more plentiful than CH$_4$ on the prebiotic Earth because H$_2$ was produced by mantle-sourced volcanoes, and CH$_4$ was not because it is not thermodynamically favored compared to CO$_2$. When chemotrophic methanogens originated, they would have converted some of the prebiotic H$_2$ to CH$_4$ through their metabolism, although the total amount of hydrogen stored in these molecules would not have changed significantly. In other words, the weighted sum of the ground-level H$_2$ and CH$_4$ mixing ratios on the prebiotic Earth (denoted $n_\mathrm{H_2}^\mathrm{pre}$ and $n_\mathrm{CH_4}^\mathrm{pre}$, respectively) would have been approximately equal to the weighted sum of the ground-level H$_2$ and CH$_4$ mixing ratios on the Earth influenced by methanogens (denoted $n_\mathrm{H_2}^\mathrm{eco}$ and $n_\mathrm{CH_4}^\mathrm{eco}$, respectively):
 
@@ -270,12 +258,8 @@ Life harnesses the free energy of disequilibria by lowering activation energy ba
 
 \begin{figure}
   \centering
-  \includegraphics[width=1.0\textwidth]{tex/2diseq/Figure4.pdf}
-  \caption{(a) Schematic of free energy during a chemical reaction. (b) The activation energy of several uncatalyzed reactions (blue), and reactions catalyzed by enzymes (orange). The lower bound for the uncatalyzed activation energy of O$_2$-N$_2$-H$_2$O (a reaction that life doesn't perform) is from \citet{Dixon_1984}, and the activation energy of nitrogen fixation is from a number of references \citep{Andersen_1977,Hageman_1980} (see 
-  Appendix \ref{} % C
-  for a summary of our literature search of nitrogen fixation kinetics). The rest of the activation energies are from 
-  Table \ref{} % 4 
-  in \citet{Wolfenden_2006}. The uncatalyzed activation energy of O$_2$-N$_2$-H$_2$O is notably larger than the uncatalyzed activation energy of reactions that life manages to perform, which we hypothesize explains why no life has evolved that can exploit the O$_2$-N$_2$-H$_2$O disequilibrium.}
+  \includegraphics[width=0.9\textwidth]{tex/2diseq/Figure4.pdf}
+  \caption{(a) Schematic of free energy during a chemical reaction. (b) The activation energy of several uncatalyzed reactions (blue), and reactions catalyzed by enzymes (orange). The lower bound for the uncatalyzed activation energy of O$_2$-N$_2$-H$_2$O (a reaction that life doesn't perform) is from \citet{Dixon_1984}, and the activation energy of nitrogen fixation is from a number of references \citep{Andersen_1977,Hageman_1980} (see Chapter Appendix \ref{sec:diseq_c} for a summary of our literature search of nitrogen fixation kinetics). The rest of the activation energies are from Table 4 in \citet{Wolfenden_2006}. The uncatalyzed activation energy of O$_2$-N$_2$-H$_2$O is notably larger than the uncatalyzed activation energy of reactions that life manages to perform, which we hypothesize explains why no life has evolved that can exploit the O$_2$-N$_2$-H$_2$O disequilibrium.}
   \label{fig:diseq_figure4}
 \end{figure}
 
@@ -283,8 +267,7 @@ Figure \ref{fig:diseq_figure4}b compares the uncatalyzed activation energy of O$
 
 Nitrogen fixing bacteria are the only organisms that break $\mathrm{N \equiv N}$ bonds by chemical reduction with the aid of the nitrogenase enzyme. The literature suggests that the uncatalyzed activation energy of nitrogen fixation by reduction is $\sim 200$ kJ/mol \citep{Hageman_1980}, which is $< 63\%$ of the uncatalyzed activation energy of Reaction \eqref{eq:o2n2h2o_diseq_react}. These differing energy barriers might explain why biology has managed to catalyze nitrogen fixation by reduction of N$_2$ but not by direct oxidation of N$_2$.
 
-In summary, we speculate that life has not evolved to consume the CO$_2$-N$_2$-CH$_4$-H$_2$O and O$_2$-N$_2$-H$_2$O disequilibrium because these reactions are kinetically insurmountable for biology. We hypothesize that these reactions will be biochemically prohibited elsewhere on Earth-like exoplanets, which is a testable hypothesis 
-(Section \ref{}).
+In summary, we speculate that life has not evolved to consume the CO$_2$-N$_2$-CH$_4$-H$_2$O and O$_2$-N$_2$-H$_2$O disequilibrium because these reactions are kinetically insurmountable for biology. We hypothesize that these reactions will be biochemically prohibited elsewhere on Earth-like exoplanets, which is a testable hypothesis (Section \ref{sec:diseq_44}).
 
 \subsection{Chemical disequilibrium as a biosignature or anti-biosignature}
 
@@ -331,7 +314,7 @@ There are some cases where even a productive biosphere can coexist with edible a
 
 These aforementioned caveats to Table \ref{tab:diseq_table2} highlights the importance of inferring fluxes of gases to further evaluate disequilibrium biosignatures \citep{KrissansenTotton_2018_diseq,Simoncini_2013}. The indicator of biology is a surface flux of gases not explained by geology, although the atmospheric composition resulting from a biological flux depends on many factors like the host star's spectrum, or volcanic outgassing rates \citep{Segura_2005}. Therefore, it makes sense to infer surface fluxes of disequilibrium gases and then compare inferred fluxes to dead processes. Fluxes unexplained by dead processes are evidence for life. Detailed consideration of fluxes is beyond the scope of this paper.
 
-\subsection{Detecting the prebiotic Earth disequilibrium anti-biosignature}
+\subsection{Detecting the prebiotic Earth disequilibrium anti-biosignature} \label{sec:diseq_44}
 
 The prebiotic disequilibrium anti-biosignature is, in principle, remotely detectable on exoplanets. Strong spectral signatures of atmospheric CO$_2$, CO and H$_2$O exist, and could be detected with reflectance or transmission spectroscopy (see Table 3 in \citet{Catling_2018}). The presence of prebiotic H$_2$ could be inferred with its spectral feature at 2.12 $\mu$m, or its continuous features in the near-infrared and $< 0.08$ $\mu$m. H$_2$ could also be detected by combining several spectral methods. Ultraviolet transmission spectroscopy can be used to observe hydrogen escape because hydrogen absorbs stellar Lyman-alpha. This has been done for warm Neptunes \citep{Ehrenreich_2015}, and could be done for Earth sized planets with future telescopes \citep{Fujii_2018}. If CH$_4$ and stratospheric H$_2$O were ruled out with transmission spectroscopy, then the hydrogen escape must result from H$_2$ in the atmosphere. 
 
@@ -351,7 +334,7 @@ The mere detection of ``edible'' or ``inedible'' disequilibria is not a definiti
 
 \section{Chapter Appendix}
 
-\subsection{Volcanic Outgassing Fluxes}
+\subsection{Volcanic outgassing fluxes} \label{sec:diseq_a}
 
 One input for the model of photochemistry coupled to a microbial ecosystem is the flux of volcanic outgassing. Here we describe how plausible prebiotic volcanic fluxes are calculated. 
 
@@ -380,10 +363,7 @@ At equilibrium, the ratios of the fugacities of volatile species (denoted $f_x$)
   K_4 = \frac{f_\mathrm{H_2S} f_\mathrm{O_2}^{1.5}}{f_\mathrm{SO_2} f_\mathrm{H_2O}} = \frac{P_\mathrm{H_2S} f_\mathrm{O_2}^{1.5}}{P_\mathrm{SO_2} P_\mathrm{H_2O}} 
 \end{equation}
 
-We calculate equilibrium constants for temperature $T = 1473$ K using the NASA thermodynamic database \citep{Burcat_2005}. Additionally, we estimate the oxygen fugacity ($f_\mathrm{O_2}$) of prebiotic volcanic gases by a linear regression through data obtained from \citet{Aulbach_2016} 
-(Figure \ref{}). % 5
-We take $\log_{10}\left(f_\mathrm{O_2}\right) = \mathrm{FMQ} - 1.48$ at 4.0 Ga as a prebiotic value. At the temperatures and pressures we consider ($T = 1473$ K and  $P = 5$ bar), $\log_{10}\left(\mathrm{FMQ}\right) = -8.47$, our Gibbs energy calculations are fairly insensitive to the chosen oxygen fugacity at 4 Ga. Changing the oxygen fugacity by 1 log unit changes our calculated Gibbs energy results by a factor of $\sim 2$ 
-(See Appendix \ref{}). % B.3
+We calculate equilibrium constants for temperature $T = 1473$ K using the NASA thermodynamic database \citep{Burcat_2005}. Additionally, we estimate the oxygen fugacity ($f_\mathrm{O_2}$) of prebiotic volcanic gases by a linear regression through data obtained from \citet{Aulbach_2016} (Figure \ref{fig:diseq_figure5}). We take $\log_{10}\left(f_\mathrm{O_2}\right) = \mathrm{FMQ} - 1.48$ at 4.0 Ga as a prebiotic value. At the temperatures and pressures we consider ($T = 1473$ K and  $P = 5$ bar), $\log_{10}\left(\mathrm{FMQ}\right) = -8.47$, our Gibbs energy calculations are fairly insensitive to the chosen oxygen fugacity at 4 Ga. Changing the oxygen fugacity by 1 log unit changes our calculated Gibbs energy results by a factor of $\sim 2$ (See Chapter Appendix \ref{sec:diseq_b3}).
 
 \begin{figure}
   \centering
@@ -467,11 +447,301 @@ Here, $Q$ is heat flow normalized to present, $F_x$ is the outgassing flux of sp
 \end{gather}
 Here, $C$ is the outgassing multiplier, which we vary between 1 and 25 to capture the most likely outgassing scenarios on the prebiotic Earth. Equations \eqref{eq:flux_ratios} - \eqref{eq:total_sulfur_flux} are a system of 7 linear equations with 7 unknown volcanic fluxes (e.g. $F_\mathrm{H_2}$), which can be reorganized and solved with matrix inversion. We solve this system for outgassing parameters ($C$) between 1 and 25, which yields a range of outgassing fluxes for each of each of the 7 species.
 
-\subsection{Photochemical Modeling and Gibbs Energy Minimization}
+\subsection{Photochemical modeling and Gibbs energy minimization} \label{sec:diseq_b}
 
-\subsubsection{Photochemical Modeling}
+\subsubsection{Photochemical modeling} \label{sec:diseq_b1}
 
-Table \ref{} and Table \ref{} % 4 and 5
-contains most of the boundary conditions used for modeling the prebiotic and chemosynthetic atmospheres respectively with the \textit{Atmos} photochemical model. All species that are not listed in 
-Table \ref{} and Table \ref{} % 4 and 5
-that are in the \textit{Atmos} code, have deposition velocities set to zero.
+Table \ref{tab:diseq_table4} and Table \ref{tab:diseq_table5} contains most of the boundary conditions used for modeling the prebiotic and chemosynthetic atmospheres respectively with the \textit{Atmos} photochemical model. All species that are not listed in Table \ref{tab:diseq_table4} and Table \ref{tab:diseq_table5} that are in the \textit{Atmos} code, have deposition velocities set to zero.
+
+\begin{table}
+  \caption{Prebiotic boundary conditions.}
+  \label{tab:diseq_table4}
+  \begin{center}
+
+  \begin{tabularx}{1.0\linewidth}{ >{\hsize=.2\hsize\raggedright\arraybackslash}X >{\hsize=.25\hsize\centering\arraybackslash}X  >{\hsize=.3\hsize\centering\arraybackslash}X >{\hsize=.25\hsize\centering\arraybackslash}X }
+    \hline \hline
+    Chemical Species & Deposition Velocity (cm s$^{-1}$) & Mixing Ratio & Flux (molecules cm$^{-2}$ s$^{-1}$) \\
+    \hline
+    O & 1.0 & - & - 
+    \\
+    $\mathrm{O_2}$ & $1.4 \times 10^{-4}$ & - & -
+    \\
+    $\mathrm{H_2O}$ & $0.0$ & - & -
+    \\
+    $\mathrm{H}$ & $1.0$ & - & -
+    \\
+    $\mathrm{OH}$ & $1.0$ & - & -
+    \\
+    $\mathrm{HO_2}$ & $1.0$ & - & -
+    \\
+    $\mathrm{H_2O_2}$ & $2.0 \times 10^{-1}$ & - & -
+    \\
+    $\mathrm{H_2}$ & $0.0$ & - & variable
+    \\
+    $\mathrm{CO}$ & $10^{-8}$ & - & variable
+    \\
+    $\mathrm{HCO}$ & $1.0$ & - & -
+    \\
+    $\mathrm{H_2CO}$ & $2.0 \times 10^{-1}$ & - & -
+    \\
+    $\mathrm{CH_4}$ & $0.0$ & - & $0.0$
+    \\
+    $\mathrm{CH_3}$ & $1.0$ & - & -
+    \\
+    $\mathrm{C_2H_6}$ & $0.0$ & - & -
+    \\
+    $\mathrm{NO}$ & $3.0 \times 10^{-4}$ & - & -
+    \\
+    $\mathrm{NO_2}$ & $3.0 \times 10^{-3}$ & - & -
+    \\
+    $\mathrm{HNO}$ & $1.0$ & - & -
+    \\
+    $\mathrm{O_3}$ & $7.0 \times 10^{-2}$ & - & -
+    \\
+    $\mathrm{HNO_3}$ & $2.0 \times 10^{-1}$ & - & -
+    \\
+    $\mathrm{H_2S}$ & $2.0 \times 10^{-2}$ & - & variable
+    \\
+    $\mathrm{SO_3}$ & $0.0$ & - & -
+    \\
+    $\mathrm{S_2}$ & $0.0$ & - & -
+    \\
+    $\mathrm{HSO}$ & $1.0$ & - & -
+    \\
+    $\mathrm{H_2SO_4}$ & $1.0$ & - & -
+    \\
+    $\mathrm{SO_2}$ & $1.0$ & - & variable
+    \\
+    $\mathrm{SO}$ & $0.0$ & - & -
+    \\
+    $\mathrm{H_2SO_4}$ aerosol & $10^{-2}$ & - & -
+    \\
+    $\mathrm{S_8}$ aerosol & $10^{-2}$ & - & -
+    \\
+    hydrocarbon aerosol & $10^{-2}$ & - & -
+    \\
+    $\mathrm{CO_2}$ & - & $2.0 \times 10^{-1}$ & -
+    \\
+    \hline
+    \multicolumn{4}{>{\raggedright\arraybackslash}p{\textwidth}}{Note - Species included in the photochemical scheme with a deposition velocity and flux of 0 include: N, C$_3$H$_2$, C$_3$H$_3$, CH$_3$C$_2$H, CH$_2$CCH$_2$, C$_3$H$_5$, C$_2$H$_5$CHO, C$_3$H$_6$, C$_3$H$_7$, C$_3$H$_8$, C$_2$H$_4$OH, C$_2$H$_2$OH, C$_2$H$_5$, C$_2$H$_4$, CH, CH$_3$O$_2$, CH$_3$O, CH$_2$CO, CH$_3$CO, CH$_3$CHO, C$_2$H$_2$, $^3$(CH$_2$), C$_2$H, C$_2$, C$_2$H$_3$, HCS, CS$_2$, CS, OCS, S, and HS. Here, deposition velocities follow those used by \citet{Kharecha_2005} and \citet{Schwieterman_2019}. We assumed that N$_2$ was a filler gas.}
+  \end{tabularx}
+  \end{center}
+\end{table}
+
+\begin{table}
+  \caption{Boundary conditions for the chemotrophic ecosystem model.}
+  \label{tab:diseq_table5}
+  \begin{center}
+
+  \begin{tabularx}{1.0\linewidth}{ >{\hsize=.2\hsize\raggedright\arraybackslash}X >{\hsize=.25\hsize\centering\arraybackslash}X  >{\hsize=.3\hsize\centering\arraybackslash}X >{\hsize=.25\hsize\centering\arraybackslash}X }
+    \hline \hline
+    Chemical Species & Deposition Velocity (cm s$^{-1}$) & Mixing Ratio & Flux (molecules cm$^{-2}$ s$^{-1}$) \\
+    \hline
+    O & 1.0 & - & - 
+    \\
+    $\mathrm{O_2}$ & $1.4 \times 10^{-4}$ & - & -
+    \\
+    $\mathrm{H_2O}$ & $0.0$ & - & -
+    \\
+    $\mathrm{H}$ & $1.0$ & - & -
+    \\
+    $\mathrm{OH}$ & $1.0$ & - & -
+    \\
+    $\mathrm{HO_2}$ & $1.0$ & - & -
+    \\
+    $\mathrm{H_2O_2}$ & $2.0 \times 10^{-1}$ & - & -
+    \\
+    $\mathrm{H_2}$ & - & variable & -
+    \\
+    $\mathrm{CO}$ & $1.2 \times 10^{-4}$ & - & variable
+    \\
+    $\mathrm{HCO}$ & $1.0$ & - & -
+    \\
+    $\mathrm{H_2CO}$ & $2.0 \times 10^{-1}$ & - & -
+    \\
+    $\mathrm{CH_4}$ & - & variable & -
+    \\
+    $\mathrm{CH_3}$ & $1.0$ & - & -
+    \\
+    $\mathrm{C_2H_6}$ & $0.0$ & - & -
+    \\
+    $\mathrm{NO}$ & $3.0 \times 10^{-4}$ & - & -
+    \\
+    $\mathrm{NO_2}$ & $3.0 \times 10^{-3}$ & - & -
+    \\
+    $\mathrm{HNO}$ & $1.0$ & - & -
+    \\
+    $\mathrm{O_3}$ & $7.0 \times 10^{-2}$ & - & -
+    \\
+    $\mathrm{HNO_3}$ & $2.0 \times 10^{-1}$ & - & -
+    \\
+    $\mathrm{H_2S}$ & $2.0 \times 10^{-2}$ & - & variable
+    \\
+    $\mathrm{SO_3}$ & $0.0$ & - & -
+    \\
+    $\mathrm{S_2}$ & $0.0$ & - & -
+    \\
+    $\mathrm{HSO}$ & $1.0$ & - & -
+    \\
+    $\mathrm{H_2SO_4}$ & $1.0$ & - & -
+    \\
+    $\mathrm{SO_2}$ & $1.0$ & - & variable
+    \\
+    $\mathrm{SO}$ & $0.0$ & - & -
+    \\
+    $\mathrm{H_2SO_4}$ aerosol & $10^{-2}$ & - & -
+    \\
+    $\mathrm{S_8}$ aerosol & $10^{-2}$ & - & -
+    \\
+    hydrocarbon aerosol & $10^{-2}$ & - & -
+    \\
+    $\mathrm{CO_2}$ & - & $2.0 \times 10^{-1}$ & -
+    \\
+    \hline
+    \multicolumn{4}{>{\raggedright\arraybackslash}p{\textwidth}}{Note - Species included in the photochemical scheme with a deposition velocity and flux of 0 include: N, C$_3$H$_2$, C$_3$H$_3$, CH$_3$C$_2$H, CH$_2$CCH$_2$, C$_3$H$_5$, C$_2$H$_5$CHO, C$_3$H$_6$, C$_3$H$_7$, C$_3$H$_8$, C$_2$H$_4$OH, C$_2$H$_2$OH, C$_2$H$_5$, C$_2$H$_4$, CH, CH$_3$O$_2$, CH$_3$O, CH$_2$CO, CH$_3$CO, CH$_3$CHO, C$_2$H$_2$, $^3$(CH$_2$), C$_2$H, C$_2$, C$_2$H$_3$, HCS, CS$_2$, CS, OCS, S, and HS. Here, deposition velocities follow those used by \citet{Kharecha_2005} and \citet{Schwieterman_2019}. We assumed that N$_2$ was a filler gas.}
+  \end{tabularx}
+  \end{center}
+\end{table}
+
+Photochemistry depends on the temperature and H$_2$O mixing ratio in the atmosphere (Figure \ref{fig:diseq_figure6}). We acquire temperature and H$_2$O profiles by coupling the Atmos photochemical code with the Atmos 1-D radiative-convective climate model. This is done by running the photochemical code, then using its output as input for the climate model. The temperature and H$_2$O output of the climate model is then used as input for the photochemical code. This coupling is continued until convergence is reached. We only couple the photochemical-climate code for the lowest volcanic outgassing scenario ($C = 1$) in the prebiotic case and use the resulting H$_2$O and temperature profiles for all simulations. Using the climate code for each simulation independently did not change the results significantly. The temperature and H$_2$O profile used in this study is shown in Figure 
+\ref{fig:diseq_figure6}. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.55\textwidth]{tex/2diseq/Figure6.pdf}
+  \caption{(a) Temperature profile and (b) H$_2$O profile used for every simulation in this study.}
+  \label{fig:diseq_figure6}
+\end{figure}
+
+Currently, the open-source version of \textit{Atmos} has several rate constants which are inappropriately ``zeroed.'' We updated these rate constants to their proper values following \citet{Harman_2015}. Table \ref{tab:diseq_table6} shows a list of the updated rate constants.
+
+\begin{table}
+  \caption{Updated reaction rates for \emph{Atmos}.}
+  \label{tab:diseq_table6}
+  \begin{center}
+  \begin{tabularx}{1.0\linewidth}{ >{\hsize=.2\hsize\raggedright\arraybackslash}X >{\hsize=.5\hsize\centering\arraybackslash}X  >{\hsize=.3\hsize\raggedleft\arraybackslash}X}
+  \hline \hline
+  Rx \# & Reaction & Rate (s$^{-1}$)
+  \\
+  \hline
+  61 & $\mathrm{^3CH_2} + \mathrm{H_2} \rightarrow \mathrm{CH_3} + \mathrm{H}$ & $5 \times 10^{-14}$
+  \\
+  62 & $\mathrm{^3CH_2} + \mathrm{CH_4} \rightarrow \mathrm{CH_3} + \mathrm{CH_3}$ & $6.1 \times 10^{12} \exp \left(\frac{-5051}{T}\right)$
+  \\
+  116 & $\mathrm{SO} + \mathrm{HO_2} \rightarrow \mathrm{SO_2} + \mathrm{OH}$ & $2.8 \times 10^{-11}$
+  \\
+  123 & $\mathrm{HSO_3} + \mathrm{OH} \rightarrow \mathrm{H_2O} + \mathrm{SO_3}$ & $10^{-11}$
+  \\
+  124 & $\mathrm{HSO_2} + \mathrm{H} \rightarrow \mathrm{H_2} + \mathrm{SO_3}$ & $10^{-11}$ 
+  \\
+  125 & $\mathrm{HSO_2} + \mathrm{O} \rightarrow \mathrm{OH} + \mathrm{SO_3}$ & $10^{-11}$ 
+  \\
+  130 & $\mathrm{HS} + \mathrm{O_2} \rightarrow \mathrm{OH} + \mathrm{SO}$ & $4 \times 10^{-19}$
+  \\
+  143 & $\mathrm{HS} + \mathrm{H_2CO} \rightarrow \mathrm{H_2S} + \mathrm{HCO}$ & $1.7 \times 10^{-11} \exp \left( \frac{-800}{T} \right)$
+  \\
+  163 & $\mathrm{SO_2} + \mathrm{HO_2} \rightarrow \mathrm{SO_3} + \mathrm{OH}$ & $10^{-18}$
+  \\
+  169 & $\mathrm{S} + \mathrm{CO_2} \rightarrow \mathrm{SO} + \mathrm{CO}$ & $10^{-20}$
+  \\
+  170 & $\mathrm{SO} + \mathrm{HO_2} \rightarrow \mathrm{HSO} + \mathrm{O_2}$ & $2.8 \times 10^{-11}$
+  \\
+  174 & $\mathrm{HSO} + \mathrm{NO} \rightarrow \mathrm{HNO} + \mathrm{SO}$ & $10^{-15}$
+  \\
+  \hline
+  \multicolumn{3}{>{\raggedright\arraybackslash}p{\textwidth}}{Note - All updated reaction rates are taken from \citet{Harman_2015}. \citet{Harman_2015} incorrectly lists the rate for Rx \#169. Here, $T$ is temperature in Kelvin.}
+  \end{tabularx}
+  \end{center}
+\end{table}
+
+All of our models include the modern production rate of NO from lightning, although this does not affect our results significantly. Every simulation uses the Sun's spectrum at 4 Ga calculated using the ``Youngsun'' routine \citep{Claire_2012}.
+
+\subsubsection{Chemical disequilibrium calculation with Gibbs energy minimization}
+
+For each modeled prebiotic and biotic atmosphere, we calculate the atmosphere-ocean chemical disequilibrium with Gibbs energy minimization. Figure \ref{fig:diseq_figure7} and Figure \ref{fig:diseq_figure8} illustrate this calculation for the lowest volcanic outgassing scenario (outgassing multiplicative factor $C = 1$) for the prebiotic and biotic Earth respectively. For both figures, the blue bars are the initial or observed concentration of the atmosphere that we generated with the \textit{Atmos} photochemical code. The red bars are the concentrations for the atmosphere-ocean system at chemical equilibrium.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\textwidth]{tex/2diseq/Figure7.pdf}
+  \caption{Atmosphere-ocean disequilibrium calculation for the prebiotic Earth (minimum outgassing scenario). Blue bars show the modeled atmosphere and ocean composition. Red bars show what happens to the species when thermodynamic equilibrium is imposed. (a) Shows all gas phase species, whereas (b) shows all aqueous species.}
+  \label{fig:diseq_figure7}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\textwidth]{tex/2diseq/Figure8.pdf}
+  \caption{Atmosphere-ocean disequilibrium calculation for the chemotrophic Earth (minimum outgassing scenario). Blue bars show the modeled atmosphere and ocean composition. Red bars show what happens to the species when thermodynamic equilibrium is imposed. (a) Shows all gas phase species, whereas (b) shows all aqueous species.}
+  \label{fig:diseq_figure8}
+\end{figure}
+
+The chemical reactions that contribute most to the chemical disequilibrium are apparent in Figure \ref{fig:diseq_figure7} and Figure \ref{fig:diseq_figure8}. The main disequilibria in the prebiotic atmosphere are H$_2$-CO$_2$ and CO-H$_2$O. Figure \ref{fig:diseq_figure7} shows that the atmosphere at equilibrium has much less H$_2$ and CO than the initial state. Additionally, the chemotrophic Earth's main disequilibrium was CO$_2$-N$_2$-CH$_4$-H$_2$O, which can be seen in Figure \ref{fig:diseq_figure8} because the equilibrium state has much less CH$_4$ than the initial state.
+
+\subsubsection{Sensitivity of chemical disequilibrium calculations to oxygen fugacity} \label{sec:diseq_b3}
+
+Figure \ref{fig:diseq_figure9} shows that chemical disequilibrium is fairly insensitive to the mantle oxygen fugacity. Chemical disequilibrium, as measured by Gibbs energy, is plotted for the lowest volcanic outgassing scenario ($C = 1$) as a function of oxygen fugacity. Changing the oxygen fugacity by 1 log unit changes the calculated Gibbs energy results by a factor of $\sim 2$ (Figure \ref{fig:diseq_figure9}). This effect is small compared to the uncertainty in volcanic outgassing rates, so it seems reasonable to ignore it.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{tex/2diseq/Figure9.pdf}
+  \caption{The effect of oxygen fugacity on the calculated available Gibbs energy for a volcanic outgassing coefficient for prebiotic Earth and after the advent of a chemotrophic biosphere. A change in 1 log unit in oxygen fugacity changes the calculated available Gibbs energy by a factor of $\sim 2$. }
+  \label{fig:diseq_figure9}
+\end{figure}
+
+\subsection{Uncatalyzed activation energy of nitrogen fixation} \label{sec:diseq_c}
+
+We suggest that life did not evolve to consume the O$_2$-N$_2$-H$_2$O and CO$_2$-N$_2$-CH$_4$-H$_2$O disequilibria because reactions of gases in these disequilibria have biologically insurmountable kinetic barriers. To substantiate this argument, we compare the uncatalyzed activation energy of O$_2$-N$_2$-H$_2$O ($>316$ kJ/mol) to the uncatalyzed activation energy of nitrogen fixation reduction, because nitrogen fixation by reduction is arguably the most kinetically difficult reaction that biology has managed to catalyze. The net nitrogen fixation by reduction reaction is
+
+\begin{equation}
+  3 \mathrm{H_2} + \mathrm{H_2} \rightarrow 2 \mathrm{NH_3}
+\end{equation}
+Table \ref{tab:diseq_table7} summarizes literature data on the uncatalyzed activation energy of this reaction. Estimates range from 150 kJ/mol to 200 kJ/mol, although we plot the 200 kJ/mol value in Figure \ref{fig:diseq_figure4}b. 
+
+\begin{table}
+  \caption{Literature values for the activation energy of nitrogen fixation by chemical reduction.}
+  \label{tab:diseq_table7}
+  \begin{center}
+  \begin{tabularx}{1.0\linewidth}{| >{\hsize=.15\hsize\centering\arraybackslash}X | >{\hsize=.15\hsize\raggedright\arraybackslash}X | >{\hsize=.2\hsize\raggedright\arraybackslash}X | >{\hsize=.5\hsize\raggedright\arraybackslash}X |}
+  \hline
+  Catalytic process & Activation Energy (kJ/mol) & Reference & Comments
+  \\
+  \hline
+  \hline
+  \multirow{3}{=}{\centering With no catalyst} & 200 & \citet{Gutschick_1982}, p. 137 & This is the Gibbs energy difference between H$_2$ and N$_2$ and the molecule N$_2$H$_2$ in the gas phase. N$_2$H$_2$ is not a step in nitrogen fixation, so this may be artificial.
+  \\
+  \cline{2-4} 
+  & 150 & \citet{Hageman_1980}, p. 281 - 282 & This is the Gibbs energy difference between H$_2$ and N$_2$ and the molecule N$_2$H$_2$ in the aqueous phase.
+  \\
+  \cline{2-4} 
+  & 150 & \citet{Ljones_1979} & They claim that the activation can be understood by the reaction of H$_2$ and N$_2$ to N$_2$H$_2$.
+  \\
+  \hline
+  \multirow{4}{=}{\centering With enzyme} & 30 & \citet{Andersen_1977} & Between temperatures 20 and 35 $^{\circ}$C in vivo.
+  \\
+  \cline{2-4} 
+  & 60 & \citet{Hardy_1968} & Between temperatures 20 and 35 $^{\circ}$C in vivo.
+  \\
+  \cline{2-4} 
+  & 61 & \citet{Burns_1969} & Above 21 $^{\circ}$C
+  \\
+  \cline{2-4} 
+  & 163 & \citet{Burns_1969} & Below 21 $^{\circ}$C
+  \\
+  \hline
+  \multirow{5}{=}{\centering With non-biological catalyst} & 103 & \citet{Appl_1999} & On an iron surface.
+  \\
+  \cline{2-4} 
+  & 27 - 60 & \citet{Dahl_2000} & Activation energy of N$_2$ dissociation on Ru catalyst.
+  \\
+  \cline{2-4} 
+  & 131 & \citet{Dahl_2000} & Calculations of N$_2$ dissociation on Ru catalyst.
+  \\
+  \cline{2-4} 
+  & 101 & \citet{Dahl_2000} & Supersonic molecular beam experiments.
+  \\
+  \cline{2-4} 
+  & 100 - 200 & \citet{Dahl_2000} & Ammonia synthesis over stepped Ru catalyst.
+  \\
+  \hline
+  \end{tabularx}
+  \end{center}
+\end{table}
