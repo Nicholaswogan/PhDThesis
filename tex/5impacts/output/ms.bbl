@@ -1,0 +1,397 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\href{#1}{#1}}
+\providecommand{\dodoi}[1]{doi:~\href{http://doi.org/#1}{\nolinkurl{#1}}}
+\providecommand{\doeprint}[1]{\href{http://ascl.net/#1}{\nolinkurl{http://ascl.net/#1}}}
+\providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
+
+\bibitem[{Adriani {et~al.}(2011)Adriani, Dinelli, Lopez-Puertas, Garcia-Comas,
+  Moriconi, \& Funke}]{Adriani_2011}
+Adriani, A., Dinelli, B., Lopez-Puertas, M., {et~al.} 2011, Icarus, 214, 584
+
+\bibitem[{Amundsen {et~al.}(2017)Amundsen, Tremblin, Manners, Baraffe, \&
+  Mayne}]{Amundsen_2017}
+Amundsen, D.~S., Tremblin, P., Manners, J., Baraffe, I., \& Mayne, N.~J. 2017,
+  Astronomy \& Astrophysics, 598, A97
+
+\bibitem[{Arney {et~al.}(2016)Arney, Domagal-Goldman, Meadows, Wolf,
+  Schwieterman, Charnay, Claire, H{\'e}brard, \& Trainer}]{Arney_2016}
+Arney, G., Domagal-Goldman, S.~D., Meadows, V.~S., {et~al.} 2016, Astrobiology,
+  16, 873
+
+\bibitem[{Aulbach \& Stagno(2016)}]{Aulbach_2016}
+Aulbach, S., \& Stagno, V. 2016, Geology, 44, 751
+
+\bibitem[{Bada \& Korenaga(2018)}]{Bada_2018}
+Bada, J.~L., \& Korenaga, J. 2018, Life, 8, 55
+
+\bibitem[{Bada \& Lazcano(2002)}]{Bada_2002}
+Bada, J.~L., \& Lazcano, A. 2002, Science, 296, 1982
+
+\bibitem[{Becker {et~al.}(2019)Becker, Feldmann, Wiedemann, Okamura, Schneider,
+  Iwan, Crisp, Rossa, Amatov, \& Carell}]{Becker_2019}
+Becker, S., Feldmann, J., Wiedemann, S., {et~al.} 2019, Science, 366, 76
+
+\bibitem[{Behnel {et~al.}(2010)Behnel, Bradshaw, Citro, Dalcin, Seljebotn, \&
+  Smith}]{Behnel_2010}
+Behnel, S., Bradshaw, R., Citro, C., {et~al.} 2010, Computing in Science \&
+  Engineering, 13, 31
+
+\bibitem[{Benner {et~al.}(2020)Benner, Bell, Biondi, Brasser, Carell, Kim,
+  Mojzsis, Omran, Pasek, \& Trail}]{Benner_2020}
+Benner, S.~A., Bell, E.~A., Biondi, E., {et~al.} 2020, ChemSystemsChem, 2,
+  e1900035
+
+\bibitem[{Catling \& Kasting(2017)}]{Catling_2017}
+Catling, D.~C., \& Kasting, J.~F. 2017, Atmospheric Evolution on Inhabited and
+  Lifeless Worlds (Cambridge University Press)
+
+\bibitem[{Cech(2012)}]{Cech_2012}
+Cech, T.~R. 2012, Cold Spring Harbor perspectives in biology, 4, a006742
+
+\bibitem[{Chameides \& Walker(1981)}]{Chameides_1981}
+Chameides, W., \& Walker, J.~C. 1981, Origins of life, 11, 291
+
+\bibitem[{Citron \& Stewart(2022)}]{Citron_2022}
+Citron, R.~I., \& Stewart, S.~T. 2022, The Planetary Science Journal, 3, 116
+
+\bibitem[{Claire {et~al.}(2012)Claire, Sheets, Cohen, Ribas, Meadows, \&
+  Catling}]{Claire_2012}
+Claire, M.~W., Sheets, J., Cohen, M., {et~al.} 2012, The Astrophysical Journal,
+  757, 95
+
+\bibitem[{Cui {et~al.}(2009)Cui, Yelle, Vuitton, Waite~Jr, Kasprzak, Gell,
+  Niemann, M{\"u}ller-Wodarg, Borggren, Fletcher, {et~al.}}]{Cui_2009}
+Cui, J., Yelle, R., Vuitton, V., {et~al.} 2009, Icarus, 200, 581
+
+\bibitem[{Di~Giulio(1997)}]{Di_1997}
+Di~Giulio, M. 1997, Journal of molecular evolution, 45, 571
+
+\bibitem[{Ehhalt {et~al.}(1975)Ehhalt, Heidt, Lueb, \& Pollock}]{Ehhalt_1975}
+Ehhalt, D., Heidt, L., Lueb, R., \& Pollock, W. 1975, Pure and Applied
+  Geophysics, 113, 389
+
+\bibitem[{Furukawa {et~al.}(2007)Furukawa, Nakazawa, Sekine, \&
+  Kakegawa}]{Furukawa_2007}
+Furukawa, Y., Nakazawa, H., Sekine, T., \& Kakegawa, T. 2007, Earth and
+  Planetary Science Letters, 258, 543
+
+\bibitem[{Genda {et~al.}(2017)Genda, Brasser, \& Mojzsis}]{Genda_2017}
+Genda, H., Brasser, R., \& Mojzsis, S. 2017, Earth and Planetary Science
+  Letters, 480, 25
+
+\bibitem[{Goldblatt \& Zahnle(2011)}]{Goldblatt_2011}
+Goldblatt, C., \& Zahnle, K.~J. 2011, Climate of the Past, 7, 203
+
+\bibitem[{Goldman \& Kacar(2021)}]{Goldman_2021}
+Goldman, A.~D., \& Kacar, B. 2021, Journal of Molecular Evolution, 89, 127
+
+\bibitem[{Goodwin {et~al.}(2022)Goodwin, Moffat, Schoegl, Speth, \&
+  Weber}]{cantera}
+Goodwin, D.~G., Moffat, H.~K., Schoegl, I., Speth, R.~L., \& Weber, B.~W. 2022,
+  \dodoi{10.5281/zenodo.6387882}
+
+\bibitem[{Gordon {et~al.}(2017)Gordon, Rothman, Hill, Kochanov, Tan, Bernath,
+  Birk, Boudon, Campargue, Chance, {et~al.}}]{Gordon_2017}
+Gordon, I.~E., Rothman, L.~S., Hill, C., {et~al.} 2017, Journal of Quantitative
+  Spectroscopy and Radiative Transfer, 203, 3
+
+\bibitem[{Graham {et~al.}(2021)Graham, Lichtenberg, Boukrouche, \&
+  Pierrehumbert}]{Graham_2021}
+Graham, R., Lichtenberg, T., Boukrouche, R., \& Pierrehumbert, R.~T. 2021, The
+  Planetary Science Journal, 2, 207
+
+\bibitem[{Grimm \& Marchi(2018)}]{Grimm_2018}
+Grimm, R.~E., \& Marchi, S. 2018, Earth and Planetary Science Letters, 485, 1,
+  \dodoi{10.1016/j.epsl.2017.12.043}
+
+\bibitem[{Grimm {et~al.}(2021)Grimm, Malik, Kitzmann, Guzm{\'a}n-Mesa,
+  Hoeijmakers, Fisher, Mendon{\c{c}}a, Yurchenko, Tennyson, Alesina,
+  {et~al.}}]{Grimm_2021}
+Grimm, S.~L., Malik, M., Kitzmann, D., {et~al.} 2021, The Astrophysical Journal
+  Supplement Series, 253, 30
+
+\bibitem[{Hargreaves {et~al.}(2020)Hargreaves, Gordon, Rey, Nikitin, Tyuterev,
+  Kochanov, \& Rothman}]{Hargreaves_2020}
+Hargreaves, R.~J., Gordon, I.~E., Rey, M., {et~al.} 2020, The Astrophysical
+  Journal Supplement Series, 247, 55
+
+\bibitem[{Hindmarsh {et~al.}(2005)Hindmarsh, Brown, Grant, Lee, Serban,
+  Shumaker, \& Woodward}]{Hindmarsh_2005}
+Hindmarsh, A.~C., Brown, P.~N., Grant, K.~E., {et~al.} 2005, ACM Transactions
+  on Mathematical Software (TOMS), 31, 363
+
+\bibitem[{Hirschmann \& Withers(2008)}]{Hirschmann_2008}
+Hirschmann, M.~M., \& Withers, A.~C. 2008, Earth and Planetary Science Letters,
+  270, 147
+
+\bibitem[{Holland(1984)}]{Holland_1984}
+Holland, H.~D. 1984, The Chemical Evolution of the Atmosphere and Oceans
+  (Princeton University Press)
+
+\bibitem[{H{\"o}rst(2017)}]{Horst_2017}
+H{\"o}rst, S.~M. 2017, Journal of Geophysical Research: Planets, 122, 432
+
+\bibitem[{Itcovitz {et~al.}(2022)Itcovitz, Rae, Citron, Stewart, Sinclair,
+  Rimmer, \& Shorttle}]{Itcovitz_2022}
+Itcovitz, J.~P., Rae, A.~S., Citron, R.~I., {et~al.} 2022, The Planetary
+  Science Journal, 3, 115
+
+\bibitem[{Kadoya {et~al.}(2020)Kadoya, Krissansen-Totton, \&
+  Catling}]{Kadoya_2020}
+Kadoya, S., Krissansen-Totton, J., \& Catling, D.~C. 2020, Geochemistry,
+  Geophysics, Geosystems, 21, e2019GC008734
+
+\bibitem[{Karman {et~al.}(2019)Karman, Gordon, van Der~Avoird, Baranov, Boulet,
+  Drouin, Groenenboom, Gustafsson, Hartmann, Kurucz, {et~al.}}]{Karman_2019}
+Karman, T., Gordon, I.~E., van Der~Avoird, A., {et~al.} 2019, Icarus, 328, 160
+
+\bibitem[{Keady \& Kilcrease(2002)}]{Keady_2002}
+Keady, J., \& Kilcrease, D. 2002, in Allen’s Astrophysical Quantities
+  (Springer), 95--120
+
+\bibitem[{Keefe \& Miller(1996)}]{Keefe_1996}
+Keefe, A.~D., \& Miller, S.~L. 1996, Origins of Life and Evolution of the
+  Biosphere, 26, 111
+
+\bibitem[{Kharecha {et~al.}(2005)Kharecha, Kasting, \& Siefert}]{Kharecha_2005}
+Kharecha, P., Kasting, J., \& Siefert, J. 2005, Geobiology, 3, 53
+
+\bibitem[{Kopparapu {et~al.}(2013)Kopparapu, Ramirez, Kasting, Eymet, Robinson,
+  Mahadevan, Terrien, Domagal-Goldman, Meadows, \& Deshpande}]{Kopparapu_2013}
+Kopparapu, R.~K., Ramirez, R., Kasting, J.~F., {et~al.} 2013, The Astrophysical
+  Journal, 765, 131
+
+\bibitem[{Korenaga(2021)}]{Korenaga_2021}
+Korenaga, J. 2021, Life, 11, 1142
+
+\bibitem[{Kress \& McKay(2004)}]{Kress_2004}
+Kress, M.~E., \& McKay, C.~P. 2004, Icarus, 168, 475
+
+\bibitem[{Kress \& Carmichael(1991)}]{Kress_1991}
+Kress, V.~C., \& Carmichael, I.~S. 1991, Contributions to Mineralogy and
+  Petrology, 108, 82
+
+\bibitem[{Krissansen-Totton {et~al.}(2021)Krissansen-Totton, Kipp, \&
+  Catling}]{Krissansen_2021}
+Krissansen-Totton, J., Kipp, M.~A., \& Catling, D.~C. 2021, Geobiology, 19, 342
+
+\bibitem[{Lavvas {et~al.}(2008{\natexlab{a}})Lavvas, Coustenis, \&
+  Vardavas}]{Lavvas_2008}
+Lavvas, P., Coustenis, A., \& Vardavas, I. 2008{\natexlab{a}}, Planetary and
+  Space Science, 56, 27
+
+\bibitem[{Lavvas {et~al.}(2008{\natexlab{b}})Lavvas, Coustenis, \&
+  Vardavas}]{Lavvas_2008b}
+---. 2008{\natexlab{b}}, Planetary and Space Science, 56, 67
+
+\bibitem[{Leconte {et~al.}(2017)Leconte, Selsis, Hersant, \&
+  Guillot}]{Leconte_2017}
+Leconte, J., Selsis, F., Hersant, F., \& Guillot, T. 2017, Astronomy \&
+  Astrophysics, 598, A98
+
+\bibitem[{Lewis(1992)}]{Lewis_1992}
+Lewis, J.~S. 1992, Space resources materials: National Aeronautics and Space
+  Administration Special Publication, 509, 59
+
+\bibitem[{Li {et~al.}(2015)Li, Gordon, Rothman, Tan, Hu, Kassi, Campargue, \&
+  Medvedev}]{Li_2015}
+Li, G., Gordon, I.~E., Rothman, L.~S., {et~al.} 2015, The Astrophysical Journal
+  Supplement Series, 216, 15
+
+\bibitem[{Loison {et~al.}(2015)Loison, H{\'e}brard, Dobrijevic, Hickson,
+  Caralp, Hue, Gronoff, Venot, \& B{\'e}nilan}]{Loison_2015}
+Loison, J., H{\'e}brard, E., Dobrijevic, M., {et~al.} 2015, Icarus, 247, 218
+
+\bibitem[{Marchi {et~al.}(2014)Marchi, Bottke, Elkins-Tanton, Bierhaus,
+  Wuennemann, Morbidelli, \& Kring}]{Marchi_2014}
+Marchi, S., Bottke, W., Elkins-Tanton, L., {et~al.} 2014, Nature, 511, 578
+
+\bibitem[{Marten {et~al.}(2002)Marten, Hidayat, Biraud, \&
+  Moreno}]{Marten_2002}
+Marten, A., Hidayat, T., Biraud, Y., \& Moreno, R. 2002, Icarus, 158, 532
+
+\bibitem[{Massie \& Hunten(1981)}]{Massie_1981}
+Massie, S., \& Hunten, D. 1981, Journal of Geophysical Research: Oceans, 86,
+  9859
+
+\bibitem[{Meadows \& Crisp(1996)}]{Meadows_1996}
+Meadows, V.~S., \& Crisp, D. 1996, Journal of Geophysical Research: Planets,
+  101, 4595
+
+\bibitem[{Miyakawa {et~al.}(2002)Miyakawa, James~Cleaves, \&
+  Miller}]{Miyakawa_2002}
+Miyakawa, S., James~Cleaves, H., \& Miller, S.~L. 2002, Origins of Life and
+  Evolution of the Biosphere, 32, 195
+
+\bibitem[{Molli{\`e}re {et~al.}(2019)Molli{\`e}re, Wardenier, Van~Boekel,
+  Henning, Molaverdikhani, \& Snellen}]{Molliere_2019}
+Molli{\`e}re, P., Wardenier, J., Van~Boekel, R., {et~al.} 2019, Astronomy \&
+  Astrophysics, 627, A67
+
+\bibitem[{Muller {et~al.}(2022)Muller, Escobar, Xu, Wegrzyn, Nainyte, Amatov,
+  Chan, Pichler, \& Carell}]{Muller_2022}
+Muller, F., Escobar, L., Xu, F., {et~al.} 2022, Nature, 605, 279
+
+\bibitem[{Murphy(1977)}]{Murphy_1977}
+Murphy, W.~F. 1977, The Journal of Chemical Physics, 67, 5877
+
+\bibitem[{Nicklas(2019)}]{Nicklas_2019}
+Nicklas, R.~W. 2019, PhD thesis, University of Maryland, College Park
+
+\bibitem[{Okamura {et~al.}(2019)Okamura, Crisp, H{\"u}bner, Becker, Rov{\'o},
+  \& Carell}]{Okamura_2019}
+Okamura, H., Crisp, A., H{\"u}bner, S., {et~al.} 2019, Angewandte Chemie
+  International Edition, 58, 18691
+
+\bibitem[{Patel {et~al.}(2015)Patel, Percivalle, Ritson, Duffy, \&
+  Sutherland}]{Patel_2015}
+Patel, B.~H., Percivalle, C., Ritson, D.~J., Duffy, C.~D., \& Sutherland, J.~D.
+  2015, Nature Chemistry, 7, 301
+
+\bibitem[{Pearce {et~al.}(2022)Pearce, Molaverdikhani, Pudritz, Henning, \&
+  Cerrillo}]{Pearce_2022}
+Pearce, B.~K., Molaverdikhani, K., Pudritz, R.~E., Henning, T., \& Cerrillo,
+  K.~E. 2022, The Astrophysical Journal, 932, 9
+
+\bibitem[{Penndorf(1957)}]{Penndorf_1957}
+Penndorf, R. 1957, Journal of the Optical Society of America, 47, 176
+
+\bibitem[{Powner {et~al.}(2009)Powner, Gerland, \& Sutherland}]{Powner_2009}
+Powner, M.~W., Gerland, B., \& Sutherland, J.~D. 2009, Nature, 459, 239
+
+\bibitem[{Ranjan \& Sasselov(2017)}]{Ranjan_2017}
+Ranjan, S., \& Sasselov, D.~D. 2017, Astrobiology, 17, 169
+
+\bibitem[{Rimmer \& Rugheimer(2019)}]{Rimmer_2019}
+Rimmer, P.~B., \& Rugheimer, S. 2019, Icarus, 329, 124
+
+\bibitem[{Rimmer \& Shorttle(2019)}]{Rimmer_2019b}
+Rimmer, P.~B., \& Shorttle, O. 2019, Life, 9, 12
+
+\bibitem[{Ritson {et~al.}(2022)Ritson, Poplawski, Bond, \&
+  Sutherland}]{Ritson_2022}
+Ritson, D.~J., Poplawski, M.~W., Bond, A.~D., \& Sutherland, J.~D. 2022,
+  Journal of the American Chemical Society, 144, 19447
+
+\bibitem[{Rothman {et~al.}(2010)Rothman, Gordon, Barber, Dothe, Gamache,
+  Goldman, Perevalov, Tashkun, \& Tennyson}]{Rothman_2010}
+Rothman, L.~S., Gordon, I., Barber, R., {et~al.} 2010, Journal of Quantitative
+  Spectroscopy and Radiative Transfer, 111, 2139
+
+\bibitem[{Sagan \& Chyba(1997)}]{Sagan_1997}
+Sagan, C., \& Chyba, C. 1997, Science, 276, 1217
+
+\bibitem[{Sanchez {et~al.}(1967)Sanchez, Ferbis, \& Orgel}]{Sanchez_1967}
+Sanchez, R.~A., Ferbis, J.~P., \& Orgel, L.~E. 1967, Journal of Molecular
+  Biology, 30, 223
+
+\bibitem[{Sasselov {et~al.}(2020)Sasselov, Grotzinger, \&
+  Sutherland}]{Sasselov_2020}
+Sasselov, D.~D., Grotzinger, J.~P., \& Sutherland, J.~D. 2020, Science
+  Advances, 6, eaax3419
+
+\bibitem[{Schmider {et~al.}(2021)Schmider, Maier, \&
+  Deutschmann}]{Schmider_2021}
+Schmider, D., Maier, L., \& Deutschmann, O. 2021, Industrial \& Engineering
+  Chemistry Research, 60, 5792
+
+\bibitem[{Shemansky(1972)}]{Shemansky_1972}
+Shemansky, D. 1972, The Journal of Chemical Physics, 56, 1582
+
+\bibitem[{Sleep {et~al.}(1989)Sleep, Zahnle, Kasting, \& Morowitz}]{Sleep_1989}
+Sleep, N.~H., Zahnle, K.~J., Kasting, J.~F., \& Morowitz, H.~J. 1989, Nature,
+  342, 139
+
+\bibitem[{Stribling \& Miller(1987)}]{Stribling_1987}
+Stribling, R., \& Miller, S.~L. 1987, Origins of Life and Evolution of the
+  Biosphere, 17, 261
+
+\bibitem[{Strobel {et~al.}(2009)Strobel, Atreya, B{\'e}zard, Ferri, Flasar,
+  Fulchignoni, Lellouch, \& M{\"u}ller-Wodarg}]{Strobel_2009}
+Strobel, D.~F., Atreya, S.~K., B{\'e}zard, B., {et~al.} 2009, Titan from
+  Cassini-Huygens, 235
+
+\bibitem[{Sutherland(2016)}]{Sutherland_2016}
+Sutherland, J.~D. 2016, Angewandte Chemie International Edition, 55, 104
+
+\bibitem[{Takahashi(1986)}]{Takahashi_1986}
+Takahashi, E. 1986, Journal of Geophysical Research: Solid Earth, 91, 9367
+
+\bibitem[{Thompson {et~al.}(2022)Thompson, Krissansen-Totton, Wogan, Telus, \&
+  Fortney}]{Thompson_2022}
+Thompson, M.~A., Krissansen-Totton, J., Wogan, N., Telus, M., \& Fortney, J.~J.
+  2022, Proceedings of the National Academy of Sciences, 119, e2117933119
+
+\bibitem[{Tian {et~al.}(2011)Tian, Kasting, \& Zahnle}]{Tian_2011}
+Tian, F., Kasting, J., \& Zahnle, K. 2011, Earth and Planetary Science Letters,
+  308, 417
+
+\bibitem[{Todd {et~al.}(2022)Todd, Lozano, Kufner, Sasselov, \&
+  Catling}]{Todd_2022}
+Todd, Z.~R., Lozano, G.~G., Kufner, C.~L., Sasselov, D.~D., \& Catling, D.~C.
+  2022, Geochimica et Cosmochimica Acta, 335, 1
+
+\bibitem[{Todd \& {\"O}berg(2020)}]{Todd_2020}
+Todd, Z.~R., \& {\"O}berg, K.~I. 2020, Astrobiology, 20, 1109
+
+\bibitem[{Toner \& Catling(2019)}]{Toner_2019}
+Toner, J.~D., \& Catling, D.~C. 2019, Geochimica et Cosmochimica Acta, 260, 124
+
+\bibitem[{Toon {et~al.}(1989)Toon, McKay, Ackerman, \& Santhanam}]{Toon_1989}
+Toon, O.~B., McKay, C., Ackerman, T., \& Santhanam, K. 1989, Journal of
+  Geophysical Research: Atmospheres, 94, 16287
+
+\bibitem[{Trainer {et~al.}(2006)Trainer, Pavlov, DeWitt, Jimenez, McKay, Toon,
+  \& Tolbert}]{Trainer_2006}
+Trainer, M.~G., Pavlov, A.~A., DeWitt, H.~L., {et~al.} 2006, Proceedings of the
+  National Academy of Sciences, 103, 18035
+
+\bibitem[{Urey(1952)}]{Urey_1952}
+Urey, H.~C. 1952, Proceedings of the National Academy of Sciences, 38, 351
+
+\bibitem[{Vardavas \& Carver(1984)}]{Vardavas_1984}
+Vardavas, I., \& Carver, J.~H. 1984, Planetary and Space Science, 32, 1307
+
+\bibitem[{Vuitton {et~al.}(2006)Vuitton, Yelle, \& Anicich}]{Vuitton_2006}
+Vuitton, V., Yelle, R., \& Anicich, V. 2006, The Astrophysical Journal, 647,
+  L175
+
+\bibitem[{White(1976)}]{White_1976}
+White, H.~B. 1976, Journal of molecular evolution, 7, 101
+
+\bibitem[{Wogan {et~al.}(2022)Wogan, Catling, Zahnle, \& Claire}]{Wogan_2022}
+Wogan, N., Catling, D., Zahnle, K., \& Claire, M. 2022, Proceedings of the
+  National Academy of Sciences
+
+\bibitem[{Wogan {et~al.}(2020)Wogan, Krissansen-Totton, \&
+  Catling}]{Wogan_2020}
+Wogan, N., Krissansen-Totton, J., \& Catling, D.~C. 2020, The Planetary Science
+  Journal, 1, 58
+
+\bibitem[{Wolf \& Toon(2010)}]{Wolf_2010}
+Wolf, E., \& Toon, O. 2010, Science, 328, 1266
+
+\bibitem[{Wolf {et~al.}(2022)Wolf, Kopparapu, Haqq-Misra, \&
+  Fauchez}]{Wolf_2022}
+Wolf, E.~T., Kopparapu, R., Haqq-Misra, J., \& Fauchez, T.~J. 2022, The
+  Planetary Science Journal, 3, 7
+
+\bibitem[{Yadav {et~al.}(2020)Yadav, Kumar, \& Krishnamurthy}]{Yadav_2020}
+Yadav, M., Kumar, R., \& Krishnamurthy, R. 2020, Chemical reviews, 120, 4766
+
+\bibitem[{Zahnle {et~al.}(2016)Zahnle, Marley, Morley, \& Moses}]{Zahnle_2016}
+Zahnle, K., Marley, M.~S., Morley, C.~V., \& Moses, J.~I. 2016, The
+  Astrophysical Journal, 824, 137
+
+\bibitem[{Zahnle(1986)}]{Zahnle_1986}
+Zahnle, K.~J. 1986, Journal of Geophysical Research: Atmospheres, 91, 2819
+
+\bibitem[{Zahnle {et~al.}(2020)Zahnle, Lupu, Catling, \& Wogan}]{Zahnle_2020}
+Zahnle, K.~J., Lupu, R., Catling, D.~C., \& Wogan, N. 2020, The Planetary
+  Science Journal, 1, 11
+
+\bibitem[{Zahnle \& Marley(2014)}]{Zahnle_2014}
+Zahnle, K.~J., \& Marley, M.~S. 2014, The Astrophysical Journal, 797, 41
+
+\end{thebibliography}
