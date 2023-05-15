@@ -408,7 +408,7 @@ We assume the oxygen atoms can flow from the atmosphere into the melt (or vice-v
 
 Finally, given a heated post-impact atmosphere that has been reduced by impactor iron and, optionally, in contact with an melt pool, we compute thermodynamic equilibrium of the atmosphere-melt system at $1900$ K. We choose 1900 K because any impact-produced silicate vapors should have condensed and rained out of the atmosphere, and the melt pool should have not yet solidified \citep{Itcovitz_2022}. To find an equilibrium state, we first compute an equilibrium composition for the atmosphere alone using the equilibrium solver in the Cantera chemical engineering package \citep{Goodwin_2022} with our thermodynamic data (Appendix \ref{sec:photochem_reactions}). Next, to equilibrate the atmosphere-melt system, we perform a zero-dimensional kinetics integration for 1000 years at constant temperature and pressure with our reaction network (Appendix \ref{sec:photochem_reactions}). All reactions in our network are reversible thermodynamically, therefore integrating the kinetics forward in time should ultimately reach a state of thermodynamic equilibrium. Our integration includes additional reactions representing Reaction \ref{eq:kress_carmichael_1} and H$_2$O dissolution in the melt. We arbitrarily choose forward reaction rates of $10^{-10}$ s$^{-1}$ for both reactions, then reverse the rates using the \citet{Kress_1991} equilibrium constant, and the Equation (19) solubility relation in \citet{Itcovitz_2022}. Overall, our approach finds a chemical equilibrium state between the atmosphere and the melt pond, and therefore an estimation of the amount of H$_2$ generated from atmosphere-iron and atmosphere-melt reactions.
 
-Our code for solving melt-atmosphere equilibrium is available at the following Zenodo link: https://doi.org/10.5281/zenodo.7802966.
+Our code for solving melt-atmosphere equilibrium is available at the following Zenodo link: \url{https://doi.org/10.5281/zenodo.7802966}.
 
 \subsection{Kinetics model of a cooling steam atmosphere} \label{sec:kinetics_climate}
 
@@ -479,13 +479,11 @@ Finally, we can substitute Equation \eqref{eq:conden2} into Equation \eqref{eq:t
  \end{cases}
 \end{equation} 
 
-Equations \eqref{eq:prod_loss} and \eqref{eq:temp1} are a system of ordinary differential equations, which we approximately solve over time using the CVODE BDF method developed by Sundials Computing \citep{Hindmarsh_2005}. Additionally, for either gas-phase or surface reactions, we make use of the Cantera software library \citep{Goodwin_2022} to compute chemical production and destruction rates. Our code for solving the equations derived in this section is available at the following Zenodo link: https://doi.org/10.5281/zenodo.7802966.
+Equations \eqref{eq:prod_loss} and \eqref{eq:temp1} are a system of ordinary differential equations, which we approximately solve over time using the CVODE BDF method developed by Sundials Computing \citep{Hindmarsh_2005}. Additionally, for either gas-phase or surface reactions, we make use of the Cantera software library \citep{Goodwin_2022} to compute chemical production and destruction rates. Our code for solving the equations derived in this section is available at the following Zenodo link: \url{https://doi.org/10.5281/zenodo.7802966}.
 
-\begin{table}
-  \caption{Variables}
-  \label{tab:5impacts_variables}
-  \begin{center}
-  \begin{tabularx}{\linewidth}{p{0.15\linewidth} | p{0.55\linewidth} | p{0.3\linewidth}}
+\begin{spacing}{1.0}
+\begin{center}
+  \begin{tabularx}{\linewidth}{p{0.15\linewidth} | p{0.55\linewidth} | p{0.3\linewidth}} \caption{Variables} \label{tab:5impacts_variables} \\
   \hline \hline
   Variable & Definition & Units \\
   \hline
@@ -561,13 +559,14 @@ Equations \eqref{eq:prod_loss} and \eqref{eq:temp1} are a system of ordinary dif
   \\
   $T$ & Temperature. $T_s$ is the surface temperature. & K 
   \\
+  \hline
   \end{tabularx}
-  \end{center}
-\end{table}
+\end{center}
+\end{spacing}
 
 \subsection{The \emph{Photochem} model} \label{sec:photochem}
 
-To simulate the photochemistry of post-impact reducing atmospheres, we developed a photochemical model called \emph{Photochem}. The model is a re-written and vastly updated version of \emph{PhotochemPy} \citep{Wogan_2022}. \emph{Photochem} is written in modern Fortran and C, with a Python interface made possible by Cython \citep{Behnel_2010}. This article uses \emph{Photochem} version v0.3.14 archived in the following Zenodo repository: https://doi.org/10.5281/zenodo.7802921.
+To simulate the photochemistry of post-impact reducing atmospheres, we developed a photochemical model called \emph{Photochem}. The model is a re-written and vastly updated version of \emph{PhotochemPy} \citep{Wogan_2022}. \emph{Photochem} is written in modern Fortran and C, with a Python interface made possible by Cython \citep{Behnel_2010}. This article uses \emph{Photochem} version v0.3.14 archived in the following Zenodo repository: \url{https://doi.org/10.5281/zenodo.7802921}.
 
 The following sections briefly describe the fundamental model equations solved by \emph{Photochem}, our chemical network, and validates the model against observations of Earth and Titan.
 
@@ -632,11 +631,11 @@ An additional challenge of post-impact atmospheres is that the scale height chan
 
 \subsubsection{Chemical network, photolysis cross sections and thermodynamic data} \label{sec:photochem_reactions}
 
-Our chemical reactions, photolysis cross sections, and thermodynamic data used for all gas-phase kinetics are archived in the following Zenodo repository: https://doi.org/10.5281/zenodo.7802962. Chemical reactions and thermodynamic data are in the file ``reaction\_mechanisms/zahnle\_earth.yaml'', and photolysis cross sections are in the folder ``xsections/''. All thermodynamic data is from the NIST Chemistry WebBook. The chemical and photolysis reactions are an updated version of rates presented in \citet{Zahnle_2016}.
+Our chemical reactions, photolysis cross sections, and thermodynamic data used for all gas-phase kinetics are archived in the following Zenodo repository: \url{https://doi.org/10.5281/zenodo.7802962}. Chemical reactions and thermodynamic data are in the file ``reaction\_mechanisms/zahnle\_earth.yaml'', and photolysis cross sections are in the folder ``xsections/''. All thermodynamic data is from the NIST Chemistry WebBook. The chemical and photolysis reactions are an updated version of rates presented in \citet{Zahnle_2016}.
 
 \subsubsection{Model validation}
 
-Figure \ref{fig:earth_titan_valid} shows \emph{Photochem} applied to Earth and Titan compared to observations gathered from the literature. All boundary conditions and settings for each model are archived in the ``ModernEarth'' and ``Titan'' templates in the following Zenodo repository: https://doi.org/10.5281/zenodo.7802921. Our model of Titan fixes the surface CH$_4$ mixing ratio to $0.015$ volume mixing ratio, permits H$_2$ escape at the diffusion-limited rate, and allows aerosols to fall to Titan's surface, but otherwise has zero-flux boundary conditions. We ignore the effects of galactic cosmic rays, which causes our model to under-predict the nitrile haze production in the lower atmosphere \citep{Lavvas_2008b}. Additionally, we neglect ion chemistry which is argued to be important for the formation of large hydrocarbons (e.g., $\mathrm{C_6H_6}$), but inconsequential for smaller molecular weight species. Despite these omissions, \emph{Photochem} broadly reproduces the main cyanide chemistry on Titan.
+Figure \ref{fig:earth_titan_valid} shows \emph{Photochem} applied to Earth and Titan compared to observations gathered from the literature. All boundary conditions and settings for each model are archived in the ``ModernEarth'' and ``Titan'' templates in the following Zenodo repository: \url{https://doi.org/10.5281/zenodo.7802921}. Our model of Titan fixes the surface CH$_4$ mixing ratio to $0.015$ volume mixing ratio, permits H$_2$ escape at the diffusion-limited rate, and allows aerosols to fall to Titan's surface, but otherwise has zero-flux boundary conditions. We ignore the effects of galactic cosmic rays, which causes our model to under-predict the nitrile haze production in the lower atmosphere \citep{Lavvas_2008b}. Additionally, we neglect ion chemistry which is argued to be important for the formation of large hydrocarbons (e.g., $\mathrm{C_6H_6}$), but inconsequential for smaller molecular weight species. Despite these omissions, \emph{Photochem} broadly reproduces the main cyanide chemistry on Titan.
 
 \begin{figure}
   \centering
@@ -697,13 +696,11 @@ Figure \ref{fig:early_mars_validation} shows a thermal emission spectra computed
 
 The \emph{Clima} code also includes an adiabatic climate model. Given partial pressures of gases at the surface, the code draws a psuedoadiabat temperature profile upward using Equation (1) in \citet{Graham_2021} until the temperature reaches an assume isothermal stratosphere. The code is general and can consider any number of condensing species, but H$_2$O is the only relevant condensible for post-impact atmospheres. Finally, to find an equilibrium climate, we solve a nonlinear equation for the surface temperature that balances incoming solar and outgoing longwave radiation. Each iteration of the nonlinear solve involves drawing an adiabat upward then computing the solar and infrared radiative fluxes.
 
-The version of \emph{Clima} used in this article (v0.3.1) is archived on Zenodo (https://doi.org/10.5281/zenodo.7802952), while the most up-to-date version can be found on GitHub (https://github.com/Nicholaswogan/clima).
+The version of \emph{Clima} used in this article (v0.3.1) is archived on Zenodo (\url{https://doi.org/10.5281/zenodo.7802952}), while the most up-to-date version can be found on GitHub (\url{https://github.com/Nicholaswogan/clima}).
 
-\begin{table}
-  \caption{Opacities used in the \emph{Clima} radiative transfer code}
-  \label{tab:climate_opacities}
-  \begin{center}
-  \begin{tabularx}{\linewidth}{p{0.13\linewidth} | p{0.1\linewidth} | p{0.38\linewidth} | p{0.3\linewidth}}
+\begin{spacing}{1.0}
+\begin{center}
+  \begin{tabularx}{\linewidth}{p{0.15\linewidth} | p{0.1\linewidth} | p{0.38\linewidth} | p{0.3\linewidth}} \caption{Opacities used in the \emph{Clima} radiative transfer code} \label{tab:climate_opacities} \\
     \hline \hline
     Opacity type & Opacity & Notes & Citation \\
     \hline 
@@ -751,8 +748,8 @@ The version of \emph{Clima} used in this article (v0.3.1) is archived on Zenodo 
   }
 
   \end{tabularx}
-  \end{center}
-\end{table}
+\end{center}
+\end{spacing}
 
 \begin{figure}
   \centering
