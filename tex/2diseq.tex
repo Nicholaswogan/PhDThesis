@@ -110,11 +110,9 @@ Here, $\Phi$ is the available Gibbs energy (J/mol atmosphere). The vector contai
 We determined the initial state of the atmosphere using the surface mixing ratios from the photochemical model (as described in the previous two sections), while the assumed initial state of the ocean is given in Table \ref{tab:assumed_comp}. Unless stated otherwise in Table \ref{tab:assumed_comp}, dissolved gas abundances were determined with Henry's law constants derived from NASA's thermodynamic database \citep{Burcat_2005} and SUPCRT database \citep{Johnson_1992}. Additionally, we assumed atmospheric temperature and pressure to be 25$^\circ$C and 1 bar respectively. Chemical disequilibrium is fairly insensitive to ocean composition, atmospheric pressure and temperature \citep{KrissansenTotton_2018_diseq}; consequently, order of magnitude errors in these assumptions will result in a fairly small error (well within a factor of $\sim 2$) in the available Gibbs energy.
 
 \begin{table}
-  \caption{Assumed initial atmosphere-ocean composition for the prebiotic and biotic early Earth.}
-  \label{tab:assumed_comp}
   \begin{center}
 
-  \begin{tabularx}{1.0\linewidth}{ >{\hsize=.1\hsize\raggedright\arraybackslash}X >{\hsize=.35\hsize\centering\arraybackslash}X  >{\hsize=.55\hsize\centering\arraybackslash}X }
+  \begin{tabularx}{1.0\linewidth}{ >{\hsize=.1\hsize\raggedright\arraybackslash}X >{\hsize=.35\hsize\centering\arraybackslash}X  >{\hsize=.55\hsize\centering\arraybackslash}X } \caption{Assumed initial atmosphere-ocean composition for the prebiotic and biotic early Earth.} \label{tab:assumed_comp} \\
     \hline \hline
     Ocean Species & Molality (mol/kg) & Reference/explanation \\
     \hline
@@ -281,10 +279,8 @@ However, disequilibrium is useful to determine the presence or absence of life i
 Thus, biosignatures and anti-biosignatures arise from looking at both the magnitude of disequilibrium and how ``edible'' the disequilibrium gas mixture is, where ``edibility'' is associated with a low activation energy. An atmosphere-ocean with ``edible'' disequilibrium is an anti-biosignature because it is a sign that life is not consuming disequilibria that has kinetic barriers that are easily biologically surmountable (Table \ref{tab:diseq_table2}). One example is the prebiotic Earth, which likely had large amounts of ``edible'' free energy from the H$_2$-CO$_2$ and CO-H$_2$O disequilibria. If chemotrophs were present, these ``edible'' disequilibria would mostly be destroyed.
 
 \begin{table}
-  \caption{Assumed initial atmosphere-ocean composition for the prebiotic and biotic early Earth.}
-  \label{tab:diseq_table2}
   \begin{center}
-  \begin{tabularx}{1.0\linewidth}{| >{\hsize=.2\hsize\centering\arraybackslash}X || >{\hsize=.4\hsize\centering\arraybackslash}X | >{\hsize=.4\hsize\centering\arraybackslash}X |}
+  \begin{tabularx}{1.0\linewidth}{| >{\hsize=.2\hsize\centering\arraybackslash}X || >{\hsize=.4\hsize\centering\arraybackslash}X | >{\hsize=.4\hsize\centering\arraybackslash}X |} \caption{Chemical disequilibrium as a biosignature and anti-biosignature.} \label{tab:diseq_table2} \\
   \hline
   & Primarily ``edible'' disequilibria (low activation energy) & Primarily ``inedible'' disequilibria (high activation energy)
   \\
@@ -457,11 +453,9 @@ Here, $C$ is the outgassing multiplier, which we vary between 1 and 25 to captur
 Table \ref{tab:diseq_table4} and Table \ref{tab:diseq_table5} contains most of the boundary conditions used for modeling the prebiotic and chemosynthetic atmospheres respectively with the \textit{Atmos} photochemical model. All species that are not listed in Table \ref{tab:diseq_table4} and Table \ref{tab:diseq_table5} that are in the \textit{Atmos} code, have deposition velocities set to zero.
 
 \begin{table}
-  \caption{Prebiotic boundary conditions.}
-  \label{tab:diseq_table4}
   \begin{center}
 
-  \begin{tabularx}{1.0\linewidth}{ >{\hsize=.2\hsize\raggedright\arraybackslash}X >{\hsize=.25\hsize\centering\arraybackslash}X  >{\hsize=.3\hsize\centering\arraybackslash}X >{\hsize=.25\hsize\centering\arraybackslash}X }
+  \begin{tabularx}{1.0\linewidth}{ >{\hsize=.2\hsize\raggedright\arraybackslash}X >{\hsize=.25\hsize\centering\arraybackslash}X  >{\hsize=.3\hsize\centering\arraybackslash}X >{\hsize=.25\hsize\centering\arraybackslash}X } \caption{Prebiotic boundary conditions.} \label{tab:diseq_table4} \\
     \hline \hline
     Chemical Species & Deposition Velocity (cm s$^{-1}$) & Mixing Ratio & Flux (molecules cm$^{-2}$ s$^{-1}$) \\
     \hline
@@ -532,11 +526,9 @@ Table \ref{tab:diseq_table4} and Table \ref{tab:diseq_table5} contains most of t
 \end{table}
 
 \begin{table}
-  \caption{Boundary conditions for the chemotrophic ecosystem model.}
-  \label{tab:diseq_table5}
   \begin{center}
 
-  \begin{tabularx}{1.0\linewidth}{ >{\hsize=.2\hsize\raggedright\arraybackslash}X >{\hsize=.25\hsize\centering\arraybackslash}X  >{\hsize=.3\hsize\centering\arraybackslash}X >{\hsize=.25\hsize\centering\arraybackslash}X }
+  \begin{tabularx}{1.0\linewidth}{ >{\hsize=.2\hsize\raggedright\arraybackslash}X >{\hsize=.25\hsize\centering\arraybackslash}X  >{\hsize=.3\hsize\centering\arraybackslash}X >{\hsize=.25\hsize\centering\arraybackslash}X } \caption{Boundary conditions for the chemotrophic ecosystem model.} \label{tab:diseq_table5} \\
     \hline \hline
     Chemical Species & Deposition Velocity (cm s$^{-1}$) & Mixing Ratio & Flux (molecules cm$^{-2}$ s$^{-1}$) \\
     \hline
@@ -619,10 +611,8 @@ Photochemistry depends on the temperature and H$_2$O mixing ratio in the atmosph
 Currently, the open-source version of \textit{Atmos} has several rate constants which are inappropriately ``zeroed.'' We updated these rate constants to their proper values following \citet{Harman_2015}. Table \ref{tab:diseq_table6} shows a list of the updated rate constants.
 
 \begin{table}
-  \caption{Updated reaction rates for \emph{Atmos}.}
-  \label{tab:diseq_table6}
   \begin{center}
-  \begin{tabularx}{1.0\linewidth}{ >{\hsize=.2\hsize\raggedright\arraybackslash}X >{\hsize=.5\hsize\centering\arraybackslash}X  >{\hsize=.3\hsize\raggedleft\arraybackslash}X}
+  \begin{tabularx}{1.0\linewidth}{ >{\hsize=.2\hsize\raggedright\arraybackslash}X >{\hsize=.5\hsize\centering\arraybackslash}X  >{\hsize=.3\hsize\raggedleft\arraybackslash}X} \caption{Updated reaction rates for \emph{Atmos}.} \label{tab:diseq_table6} \\
   \hline \hline
   Rx \# & Reaction & Rate (s$^{-1}$)
   \\
@@ -700,10 +690,8 @@ We suggest that life did not evolve to consume the O$_2$-N$_2$-H$_2$O and CO$_2$
 Table \ref{tab:diseq_table7} summarizes literature data on the uncatalyzed activation energy of this reaction. Estimates range from 150 kJ/mol to 200 kJ/mol, although we plot the 200 kJ/mol value in Figure \ref{fig:diseq_figure4}b. 
 
 \begin{table}
-  \caption{Literature values for the activation energy of nitrogen fixation by chemical reduction.}
-  \label{tab:diseq_table7}
   \begin{center}
-  \begin{tabularx}{1.0\linewidth}{| >{\hsize=.15\hsize\centering\arraybackslash}X | >{\hsize=.15\hsize\raggedright\arraybackslash}X | >{\hsize=.2\hsize\raggedright\arraybackslash}X | >{\hsize=.5\hsize\raggedright\arraybackslash}X |}
+  \begin{tabularx}{1.0\linewidth}{| >{\hsize=.15\hsize\centering\arraybackslash}X | >{\hsize=.15\hsize\raggedright\arraybackslash}X | >{\hsize=.2\hsize\raggedright\arraybackslash}X | >{\hsize=.5\hsize\raggedright\arraybackslash}X |} \caption{Literature values for the activation energy of nitrogen fixation by chemical reduction.} \label{tab:diseq_table7} \\
   \hline
   Catalytic process & Activation Energy (kJ/mol) & Reference & Comments
   \\
