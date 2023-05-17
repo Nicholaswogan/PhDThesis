@@ -105,9 +105,7 @@
 
 
 \setcounter{page}{-1}
-\abstract{
-Here is the abstract
-}
+\include{tex/0abstract.tex}
  
 %
 % ----- contents & etc.
@@ -143,8 +141,8 @@ Acknowledge stuff
 
 % Chapter 1
 \chapter{Introduction}
-
-Intro.
+\newpage
+\include{tex/1intro.tex}
 
 % Part 1
 \part{Atmospheric Biosignatures, and Life's Impact on the Early Earth}
@@ -168,10 +166,11 @@ Intro.
 \part{Origin of life atmospheric chemistry}
 
 % Chapter 5
-\chapter{Origin of Life Molecules in the Atmosphere After Big Impacts on the Early Earth}
+\chapter{Origin of Life Molecules in the Atmosphere After Big Impacts on the Early Earth} \label{ch:5}
 \newpage
 \include{tex/5impacts.tex}
 
+% Chapter 6
 \chapter{Timing and Likelihood of the Origin of Life Derived from Post-Impact Highly Reducing Atmospheres}
 \newpage
 \include{tex/6time.tex}
