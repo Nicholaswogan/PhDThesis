@@ -131,6 +131,13 @@ If life began after an impact that generated a reducing atmosphere, then this wo
 
 \section{Chapter Appendix} \label{sec:append_vap}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{tex/6time/figures/velocity_distribution.pdf}
+  \caption{Our assumed probability distribution for the velocity of impacts derived from modern observations of asteroid close approaches \citep{Park_2023}.}
+  \label{fig:velocity_distribution}
+\end{figure}
+
 Recently, \citet{Citron_2022} performed smoothed-particle hydrodynamics impact simulations over a range of impact angles, masses and velocities to estimate the impact properties that can vaporize an ocean. Figure \ref{fig:energy_for_ocean_vap}a shows their simulation results for the change in the atmosphere's and ocean's internal energy ($\Delta \mathrm{IE}_\mathrm{atmo}$) as a function of impact kinetic energy ($\mathrm{E}_\mathrm{imp}$), along with log-linear extrapolations for each impact angle. Figure \ref{fig:energy_for_ocean_vap} gives the same information, but the y-axis is instead the fraction of the impactor's energy that heats the atmosphere and ocean. For the most probable impact angle of $45^\circ$ about $\sim 10\%$ of the impactors kinetic energy heats the atmosphere ($f_\mathrm{E,vap} = 0.1$), so we nominally adopt this value in the main text to determine which collisions vaporize the ocean.
 
 Energy delivery to the atmosphere/ocean appears to depend on impact angle, mass and velocity (Figure \ref{fig:energy_for_ocean_vap}). Additionally, all of the \citet{Citron_2022} simulations are far more massive than the minimum threshold for ocean-vaporization, so we must rely on extrapolations. Therefore, our assumption of a constant $f_\mathrm{E,vap} = 0.1$ is an over-simplification. To remedy this shortcoming, we considered building a parameterization for $f_\mathrm{E,vap}$ that depends on multiple impact properties (e.g., impact angle) using the \citet{Citron_2022} simulation results, but this was unsuccessful because their calculations do not consider a wide enough parameter space.
