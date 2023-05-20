@@ -1,4 +1,3 @@
-
 Most work in this thesis leverages 1-D photochemical models to help understand the composition of the early Earth atmosphere. Several chapters contain brief descriptions of the equations governing photochemical models (e.g., Sections \ref{sec:goe_methods} and \ref{sec:photochem_model}), but no description is complete and not all assumptions are explicit. The purpose of this Appendix is to provide a full derivation of the governing equations, from a simple statement of the conservation of mass all the way to a finite volume discretization that can be implemented in a computer program.
 
 \section{The Photochemical Equation} \label{sec:photochem_eqn}
@@ -352,11 +351,13 @@ and the upper boundary,
 
 Equations \eqref{eq:dfdt_general} and \eqref{eq:dfdt_boundary} are a system of ordinary differential equations (ODEs) which are a finite volume approximation of our original system of PDEs (Equation \eqref{eq:appen_continuity_simple}). The number of ODEs is the number evolving species (gases + particles) multiplied by the number of atmospheric grid-cells. We often use about 100 species and 200 vertical layers resulting in $\sim$20,000 ODEs.
 
+\subsection{Source terms}
+
+
+
 \section{Solving the system of ordinary differential equations}
 
-% At this point, 
-
-% Given initial conditions, boundary conditions, and values for various free parameters (e.g. $K$), we can evolve Equations \eqref{eq:dfdt_gas}, \eqref{eq:dfdt_gas_boundary}, \eqref{eq:dfdt_particle} and \eqref{eq:dfdt_particle_boundary} forward in time using a 
+Given initial conditions, boundary conditions, and values for various free parameters (e.g. $K$), we can evolve Equations \eqref{eq:dfdt_general} and \eqref{eq:dfdt_boundary} forward in time using a stiff ordinary differential equation solver.
 
 \section{Molecular Diffusion} \label{sec:molecular_diffusion}
 
