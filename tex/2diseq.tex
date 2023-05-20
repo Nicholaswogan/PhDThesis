@@ -1,4 +1,3 @@
-
 \noindent \textit{This chapter was originally published in collaboration with David C. Catling in the Astrophysical Journal \citep{Wogan_2020_diseq}, and is reproduced below with the permission of the journal.}
 
 \section*{\centering Summary}
@@ -397,7 +396,7 @@ We calculate $\chi_\mathrm{C}$ and $\chi_\mathrm{S}$ using modern values of tota
   \centering
   \begin{tabular}{| c | c | c | c | c | c | c || c | c | c || c | c |}
     \hline
-    \multicolumn{7}{| c ||}{Modern Volcanic Fluxes (Tmol/yr)} & \multicolumn{3}{c ||}{Total Modern Fluxes (Tmol/yr)} & \multicolumn{2}{c |}{Ratios} 
+    \multicolumn{7}{| c ||}{Modern Volcanic Fluxes ($\frac{\mathrm{Tmol}}{\mathrm{yr}}$)} & \multicolumn{3}{c ||}{Total Modern Fluxes ($\frac{\mathrm{Tmol}}{\mathrm{yr}}$)} & \multicolumn{2}{c |}{Ratios} 
     \\
     \hline
     CO$_2$ & H$_2$O & SO$_2$ & H$_2$ & CO & CH$_4$ & H$_2$S & $F_\mathrm{hydrogen}^\mathrm{mod}$ & $F_\mathrm{carbon}^\mathrm{mod}$ & $F_\mathrm{sulfur}^\mathrm{mod}$ & $\chi_\mathrm{C}$ & $\chi_\mathrm{S}$
@@ -610,6 +609,8 @@ Photochemistry depends on the temperature and H$_2$O mixing ratio in the atmosph
 
 Currently, the open-source version of \textit{Atmos} has several rate constants which are inappropriately ``zeroed.'' We updated these rate constants to their proper values following \citet{Harman_2015}. Table \ref{tab:diseq_table6} shows a list of the updated rate constants.
 
+All of our models include the modern production rate of NO from lightning, although this does not affect our results significantly. Every simulation uses the Sun's spectrum at 4 Ga calculated using the ``Youngsun'' routine \citep{Claire_2012}.
+
 \begin{table}
   \begin{center}
   \begin{tabularx}{1.0\linewidth}{ >{\hsize=.2\hsize\raggedright\arraybackslash}X >{\hsize=.5\hsize\centering\arraybackslash}X  >{\hsize=.3\hsize\raggedleft\arraybackslash}X} \caption{Updated reaction rates for \emph{Atmos}.} \label{tab:diseq_table6} \\
@@ -647,11 +648,11 @@ Currently, the open-source version of \textit{Atmos} has several rate constants 
   \end{center}
 \end{table}
 
-All of our models include the modern production rate of NO from lightning, although this does not affect our results significantly. Every simulation uses the Sun's spectrum at 4 Ga calculated using the ``Youngsun'' routine \citep{Claire_2012}.
-
 \subsubsection{Chemical disequilibrium calculation with Gibbs energy minimization}
 
 For each modeled prebiotic and biotic atmosphere, we calculate the atmosphere-ocean chemical disequilibrium with Gibbs energy minimization. Figure \ref{fig:diseq_figure7} and Figure \ref{fig:diseq_figure8} illustrate this calculation for the lowest volcanic outgassing scenario (outgassing multiplicative factor $C = 1$) for the prebiotic and biotic Earth respectively. For both figures, the blue bars are the initial or observed concentration of the atmosphere that we generated with the \textit{Atmos} photochemical code. The red bars are the concentrations for the atmosphere-ocean system at chemical equilibrium.
+
+The chemical reactions that contribute most to the chemical disequilibrium are apparent in Figure \ref{fig:diseq_figure7} and Figure \ref{fig:diseq_figure8}. The main disequilibria in the prebiotic atmosphere are H$_2$-CO$_2$ and CO-H$_2$O. Figure \ref{fig:diseq_figure7} shows that the atmosphere at equilibrium has much less H$_2$ and CO than the initial state. Additionally, the chemotrophic Earth's main disequilibrium was CO$_2$-N$_2$-CH$_4$-H$_2$O, which can be seen in Figure \ref{fig:diseq_figure8} because the equilibrium state has much less CH$_4$ than the initial state.
 
 \begin{figure}
   \centering
@@ -666,8 +667,6 @@ For each modeled prebiotic and biotic atmosphere, we calculate the atmosphere-oc
   \caption{Atmosphere-ocean disequilibrium calculation for the chemotrophic Earth (minimum outgassing scenario). Blue bars show the modeled atmosphere and ocean composition. Red bars show what happens to the species when thermodynamic equilibrium is imposed. (a) Shows all gas phase species, whereas (b) shows all aqueous species.}
   \label{fig:diseq_figure8}
 \end{figure}
-
-The chemical reactions that contribute most to the chemical disequilibrium are apparent in Figure \ref{fig:diseq_figure7} and Figure \ref{fig:diseq_figure8}. The main disequilibria in the prebiotic atmosphere are H$_2$-CO$_2$ and CO-H$_2$O. Figure \ref{fig:diseq_figure7} shows that the atmosphere at equilibrium has much less H$_2$ and CO than the initial state. Additionally, the chemotrophic Earth's main disequilibrium was CO$_2$-N$_2$-CH$_4$-H$_2$O, which can be seen in Figure \ref{fig:diseq_figure8} because the equilibrium state has much less CH$_4$ than the initial state.
 
 \subsubsection{Sensitivity of chemical disequilibrium calculations to oxygen fugacity} \label{sec:diseq_b3}
 
