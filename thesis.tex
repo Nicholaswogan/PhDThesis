@@ -57,6 +57,11 @@
 \usepackage{setspace}
 \usepackage{bm}
 
+% for CV
+\usepackage{enumitem}
+\newlist{cvlist}{description}{1}
+\setlist[cvlist]{style=sameline,leftmargin=1in,font=\normalfont}
+
 \renewcommand{\arraystretch}{1.0}
 
 %
@@ -213,5 +218,9 @@
 \chapter{Photochemical Modeling Equations}
 \newpage
 \include{tex/A_appendix.tex}
+
+\chapter{Curriculum Vitae}
+\newpage
+\include{tex/cv.tex}
  
 \end{document}
